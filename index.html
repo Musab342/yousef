@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مؤشرات البحث عن وظيفة – يوسف الحربي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b2a6f; --blue:#1d4ed8; --blue-2:#3b6ef5; --sky:#e8efff;
+  --bg:#f5f7fb; --card:#fff; --line:#e3e8f2; --ink:#14213d; --muted:#64708a;
+  --sent:#eef0f4; --sent-ink:#5b6475;
+  --eng:#e3f6e9; --eng-ink:#16733a;
+  --win:#1f8f4e; --win-bg:#c9efd6;
+  --no:#fbe7ec; --no-ink:#a3324f;
+  --warn:#fff4dc; --warn-ink:#8a5a00;
+  --r:12px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Tajawal",system-ui,sans-serif;font-size:14px}
+button,input,select,textarea{font:inherit;color:inherit}
+header{background:linear-gradient(120deg,var(--navy),var(--blue));color:#fff;padding:22px 28px 70px}
+.hrow{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;max-width:1500px;margin:0 auto}
+h1{margin:0;font-size:22px;font-weight:700}
+.sub{opacity:.85;margin-top:6px;font-size:13px}
+.hbtns{display:flex;gap:8px;flex-wrap:wrap}
+.hbtns button{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:9px;padding:8px 14px;cursor:pointer}
+.hbtns button:hover{background:rgba(255,255,255,.24)}
+main{max-width:1500px;margin:-52px auto 40px;padding:0 20px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.kpi{background:var(--card);border-radius:var(--r);padding:14px 16px;box-shadow:0 1px 3px rgba(16,30,70,.08)}
+.kpi .l{color:var(--muted);font-size:12px}
+.kpi .v{font-size:24px;font-weight:700;margin-top:4px;font-variant-numeric:tabular-nums}
+.kpi .s{color:var(--muted);font-size:12px;margin-top:2px}
+.prog{height:6px;background:var(--sky);border-radius:4px;margin-top:8px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--blue)}
+.tabs{display:flex;gap:4px;margin:22px 0 12px;border-bottom:1px solid var(--line)}
+.tab{background:none;border:none;padding:10px 16px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;font-weight:500}
+.tab.on{color:var(--blue);border-color:var(--blue)}
+.tab .badge{background:var(--warn);color:var(--warn-ink);border-radius:10px;padding:0 7px;font-size:11px;margin-inline-start:6px}
+.panel{display:none}.panel.on{display:block}
+.card{background:var(--card);border-radius:var(--r);box-shadow:0 1px 3px rgba(16,30,70,.08);padding:16px;margin-bottom:14px}
+.card h3{margin:0 0 12px;font-size:15px}
+.grid2{display:grid;grid-template-columns:3fr 2fr;gap:14px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.grid2>*{min-width:0}
+@media(max-width:600px){
+ header{padding:16px 16px 60px}h1{font-size:18px}
+ main{padding:0 12px}
+ .kpis{grid-template-columns:1fr 1fr;gap:8px}.kpi{padding:10px 12px}.kpi .v{font-size:20px}
+ .tabs{overflow-x:auto;white-space:nowrap}.tab{padding:10px 12px}
+ .tools select{flex:1 1 45%}
+ .tbl{max-height:none}
+ .funnel .row{grid-template-columns:96px 1fr 36px}
+ #vcap{font-size:16px}
+}
+table{border-collapse:collapse;width:100%}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font-size:12px;color:var(--muted);font-weight:600;background:#fafbfe;position:sticky;top:0;z-index:1}
+td.num,th.num{text-align:left;font-variant-numeric:tabular-nums}
+tr.tot td{font-weight:700;background:#fafbfe}
+.funnel .row{display:grid;grid-template-columns:110px 1fr 44px;align-items:center;gap:10px;margin:6px 0}
+.funnel .bar{height:20px;border-radius:5px;background:var(--sky)}
+.funnel .bar i{display:block;height:100%;border-radius:5px;background:var(--blue-2);min-width:2px}
+.funnel .n{text-align:left;font-variant-numeric:tabular-nums;font-weight:600}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.tools input[type=search]{flex:1;min-width:200px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;background:#fff}
+.tools select{padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff}
+.count{color:var(--muted);font-size:12px}
+.tbl{overflow:auto;max-height:70vh;border-radius:var(--r);background:#fff;box-shadow:0 1px 3px rgba(16,30,70,.08)}
+.tbl table{min-width:1250px}
+.tbl tbody tr{cursor:pointer}
+.tbl tbody tr:hover td{background:#f7f9ff}
+tr.st-sent td{background:var(--sent);color:var(--sent-ink)}
+tr.st-eng td{background:var(--eng)}
+tr.st-win td{background:var(--win-bg)}
+tr.st-no td{background:var(--no);color:var(--no-ink)}
+tr.st-x td{background:#f3f3f3;color:#9aa1ad;text-decoration:line-through}
+tr.st-x td select,tr.st-x td input{text-decoration:none}
+tr.open td{background:#eef3ff !important}
+.tbl td{white-space:nowrap}.tbl td.co{white-space:normal;min-width:140px;max-width:220px}
+.nm{font-weight:600;color:var(--ink)}
+.small{font-size:12px;color:var(--muted)}
+.pill{display:inline-block;border-radius:20px;padding:1px 9px;font-size:12px;white-space:nowrap}
+.p-h{background:#fde8e8;color:#a61b1b}.p-m{background:var(--warn);color:var(--warn-ink)}.p-l{background:#eef0f4;color:#5b6475}
+td select,td input{border:1px solid transparent;background:transparent;border-radius:7px;padding:4px 6px;max-width:100%}
+td select:hover,td input:hover,td select:focus,td input:focus{border-color:var(--line);background:#fff;outline:none}
+td input.amt{width:110px;text-align:left}
+td input.dt{width:130px}
+.due{color:var(--warn-ink);font-weight:600}
+.detail td{background:#fbfcff !important;cursor:default;padding:0}
+.dbox{position:sticky;right:0;width:min(1460px,calc(100vw - 40px));display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;padding:16px}
+.dbox h4{margin:0 0 6px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.msg{white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px;font-size:13px;line-height:1.7;max-height:260px;overflow:auto}
+textarea{width:100%;min-height:110px;border:1px solid var(--line);border-radius:9px;padding:10px;resize:vertical;background:#fff;line-height:1.6}
+.cp{background:none;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:0 6px;cursor:pointer;font-size:12px;line-height:18px;margin-inline-start:4px;vertical-align:middle}
+.cp:hover{background:var(--sky)}
+.cp.ok{color:var(--win);border-color:var(--win)}
+.copy{background:var(--sky);border:none;color:var(--blue);border-radius:7px;padding:3px 10px;cursor:pointer;font-size:12px}
+.links a{color:var(--blue);text-decoration:none;margin-inline-end:14px}
+.state{position:fixed;bottom:16px;left:16px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:9px;font-size:12px;opacity:0;transition:.25s;pointer-events:none}
+.state.show{opacity:.92}
+.note{background:var(--warn);color:var(--warn-ink);border-radius:9px;padding:9px 12px;margin-bottom:12px;font-size:13px;display:none}
+.empty{padding:30px;text-align:center;color:var(--muted)}
+.more{display:block;margin:12px auto;background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 18px;cursor:pointer}
+.hist td{font-size:12px}
+/* تحسينات الخط */
+html,body{font-family:"Tajawal","Segoe UI",Tahoma,system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;font-feature-settings:"kern" 1}
+h1{font-size:24px;line-height:1.35;letter-spacing:0}
+.sub{font-size:14px}
+.card h3{font-size:16px;font-weight:600}
+.kpi .l{font-size:13px;font-weight:500}
+.kpi .v{font-size:26px;line-height:1.25}
+.kpi .s,.count,.small,.pill,.cp,.copy,.state{font-size:12.5px}
+.tab{font-size:14.5px}
+.tab.on{font-weight:600}
+th{font-size:13px;color:#4f5b75;letter-spacing:0}
+td{font-size:14px;line-height:1.5}
+.nm{font-weight:600}
+.dbox h4{font-size:13.5px;font-weight:600}
+.msg{font-size:14px;line-height:1.9}
+textarea{font-size:14px;line-height:1.8}
+.note{font-size:13.5px;line-height:1.7}
+.hist td{font-size:12.5px}
+.num,.kpi .v,.funnel .n,td input.amt,td input.dt{font-variant-numeric:tabular-nums lining-nums}
+@media(max-width:600px){
+ html,body{font-size:14.5px}
+ h1{font-size:19px}
+ .kpi .v{font-size:21px}
+ .tools input,.tools select,textarea{font-size:16px}
+}
+</style>
+<style>
+.daily .row{display:grid;grid-template-columns:92px 1fr 36px;align-items:center;gap:10px;margin:5px 0}
+.daily .bar{height:16px;border-radius:5px;background:var(--sky)}
+.daily .bar i{display:block;height:100%;border-radius:5px;background:var(--blue-2);min-width:2px}
+.daily .bar i.full{background:var(--win)}
+.daily .n{text-align:left;font-variant-numeric:tabular-nums;font-weight:600}
+.perfbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:16px 0 12px}
+.upd{display:inline-flex;align-items:center;gap:6px;background:var(--eng);color:var(--eng-ink);border-radius:20px;padding:3px 12px;font-size:13px;font-weight:600}
+.lastupd{color:var(--muted);font-size:13.5px}
+.act .it{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.act .it:last-child{border-bottom:none}
+@media(max-width:600px){#catTbl th,#catTbl td{padding:7px 6px;font-size:12.5px}}
+</style>
+<style>
+:root{color-scheme:light dark}
+@media (prefers-color-scheme: dark){
+ :root{--navy:#0a1838;--blue:#7aa2ff;--blue-2:#5b86f7;--sky:#1c2a4a;--bg:#0d1220;--card:#161d2e;--line:#273149;--ink:#e6eaf4;--muted:#93a0bb;
+  --sent:#1b2233;--sent-ink:#a9b3c7;--eng:#123323;--eng-ink:#7fdca3;--win:#4fd08a;--win-bg:#14412a;--no:#3a1a24;--no-ink:#f2a3b8;--warn:#3a2e12;--warn-ink:#f3c766}
+ header{background:linear-gradient(120deg,#0a1838,#1a3a9c)}
+ th{background:#1a2236;color:#a9b5cc}
+ tr.tot td{background:#1a2236}
+ .tbl,.msg,textarea,.tools input[type=search],.tools select,.more,.dbox input{background:var(--card)!important;color:var(--ink)}
+ .tbl tbody tr:hover td{background:#1c2540}
+ tr.open td{background:#1e2a4a!important}
+ .detail td{background:#121828!important}
+ tr.st-x td{background:#151a26;color:#5f687c}
+ td select:hover,td input:hover,td select:focus,td input:focus{background:#0f1526}
+ .p-h{background:#47202a;color:#ffb3b3}.p-l,.p-s{background:#232b3e;color:#a9b3c7}
+ .hr{background:var(--warn);color:var(--warn-ink)}
+ .tab .badge{background:var(--warn);color:var(--warn-ink)}
+ .kpi,.card{box-shadow:0 1px 3px rgba(0,0,0,.4)}
+ .state{background:#e6eaf4;color:#0d1220}
+ .tab.on{color:var(--blue);border-color:var(--blue)}
+ .links a,.cp,.copy{color:var(--blue)}
+ .copy{background:var(--sky)}
+ .prog i,.funnel .bar i{background:var(--blue-2)}
+}
+</style>
+
+</head>
+<body>
+<header><div class="hrow"><div>
+  <h1>مؤشرات البحث عن وظيفة – يوسف الحربي</h1>
+  <div class="sub">رسائل يومية عبر LinkedIn · هدف اليوم <span id="goal"></span> رسالة</div>
+</div></div></header>
+<main>
+  <div class="note" id="note"></div>
+  <section class="kpis" id="kpis"></section>
+  <div class="perfbar"><span class="upd" id="genAt"></span><span class="lastupd" id="lastUpd"></span></div>
+  <div class="grid2">
+    <div class="card"><h3>حسب المستوى الوظيفي</h3><div style="overflow:auto"><table id="catTbl"></table></div></div>
+    <div class="card"><h3>مراحل التواصل</h3><div class="funnel" id="funnel"></div></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>الإرسال اليومي – آخر 14 يوم</h3><div class="daily" id="daily"></div></div>
+    <div class="card act"><h3>آخر التحديثات</h3><div id="actList"></div></div>
+  </div>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt=n=>Number(n||0).toLocaleString("en-US");
+const L="ar-SA-u-nu-latn-ca-gregory";
+const tfmt=t=>new Date(t).toLocaleString(L,{weekday:"short",day:"numeric",month:"short",hour:"numeric",minute:"2-digit",timeZone:"Asia/Riyadh"});
+function render(k){
+  const t=k.total, td=(k.daily.find(d=>d[0]===k.today)||[0,0])[1], pct=Math.min(100,td/k.goal*100);
+  $("#goal").textContent=k.goal;
+  $("#kpis").innerHTML=`
+   <div class="kpi"><div class="l">جهات التواصل</div><div class="v">${fmt(t.n)}</div><div class="s">${fmt(t.ok)} مناسبة للإرسال · ${fmt(t.n-t.ok)} تجاوز</div></div>
+   <div class="kpi"><div class="l">تم الإرسال</div><div class="v">${fmt(t.s)}</div><div class="s">${t.ok?Math.round(t.s/t.ok*100):0}% من المناسبين</div></div>
+   <div class="kpi"><div class="l">ردّوا</div><div class="v">${fmt(t.r)}</div><div class="s">نسبة الرد ${t.s?Math.round(t.r/t.s*100):0}%</div></div>
+   <div class="kpi"><div class="l">مقابلات</div><div class="v">${fmt(t.i)}</div><div class="s">${fmt(k.conv)} تحويل للتوظيف</div></div>
+   <div class="kpi"><div class="l">عروض وظيفية</div><div class="v">${fmt(t.w)}</div><div class="s">${fmt(k.no)} اعتذار</div></div>
+   <div class="kpi"><div class="l">موارد بشرية / توظيف</div><div class="v">${fmt(t.hr)}</div><div class="s">أُرسل لـ ${fmt(k.hrSent)} منهم</div></div>
+   <div class="kpi"><div class="l">متابعات مستحقة</div><div class="v">${fmt(k.due)}</div><div class="s">أُرسل لهم قبل 7 أيام وما ردّوا</div></div>
+   <div class="kpi"><div class="l">إرسال اليوم</div><div class="v">${fmt(td)} / ${k.goal}</div><div class="prog"><i style="width:${pct}%"></i></div><div class="s">حتى وقت التحديث</div></div>`;
+  $("#genAt").textContent="تحدّثت الصفحة: "+tfmt(k.generatedAt);
+  $("#lastUpd").textContent=k.lastUpdate?"آخر تعديل في الشيت: "+tfmt(k.lastUpdate):"";
+  const line=(l,o,cls="")=>`<tr class="${cls}"><td>${esc(l)}</td><td class="num">${fmt(o.n)}</td><td class="num">${fmt(o.ok)}</td><td class="num">${fmt(o.s)}</td><td class="num">${fmt(o.r)}</td><td class="num">${fmt(o.i)}</td><td class="num">${fmt(o.w)}</td></tr>`;
+  $("#catTbl").innerHTML=`<thead><tr><th>المستوى</th><th class="num">العدد</th><th class="num">مناسب</th><th class="num">تم الإرسال</th><th class="num">ردّوا</th><th class="num">مقابلة</th><th class="num">عرض</th></tr></thead><tbody>`+
+    k.cats.map(([c,o])=>line(c,o)).join("")+line("الإجمالي",t,"tot")+"</tbody>";
+  const mx=Math.max(1,...k.funnel.map(f=>f[1]));
+  $("#funnel").innerHTML=k.funnel.map(([s,c])=>`<div class="row"><span>${s}</span><div class="bar"><i style="width:${c/mx*100}%"></i></div><span class="n">${fmt(c)}</span></div>`).join("");
+  const m2=Math.max(k.goal,...k.daily.map(d=>d[1]));
+  const wd=d=>new Date(d+"T12:00:00Z").toLocaleDateString(L,{weekday:"short",day:"numeric",month:"numeric"});
+  $("#daily").innerHTML=k.daily.map(([d,c])=>`<div class="row"><span class="small">${wd(d)}</span><div class="bar"><i class="${c>=k.goal?"full":""}" style="width:${c/m2*100}%"></i></div><span class="n">${fmt(c)}</span></div>`).join("");
+  $("#actList").innerHTML=k.activity.length?k.activity.map(([t,c,s])=>`<div class="it"><span>${esc(c)} — <b>${esc(s)}</b></span><span class="small">${tfmt(t)}</span></div>`).join(""):`<div class="small">ما فيه تعديلات بعد آخر تغذية للشيت</div>`;
+}
+async function load(){
+  try{const r=await fetch("data/kpi.json",{cache:"no-store"});render(await r.json());$("#note").style.display="none"}
+  catch(e){const n=$("#note");n.textContent="تعذّر تحميل المؤشرات، حدّث الصفحة.";n.style.display="block"}
+}
+load();
+</script>
+</body>
+</html>
