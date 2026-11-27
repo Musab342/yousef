@@ -1,0 +1,9 @@
+{"S":"/tmp/claude-0/-home-user-yousef/a1a6bc2a-682e-5890-b870-35db6ace3693/scratchpad","words":"/tmp/claude-0/-home-user-yousef/a1a6bc2a-682e-5890-b870-35db6ace3693/scratchpad/rec/words.json","wav":"/tmp/claude-0/-home-user-yousef/a1a6bc2a-682e-5890-b870-35db6ace3693/scratchpad/rec/clean_final.wav","outdir":"/tmp/claude-0/-home-user-yousef/a1a6bc2a-682e-5890-b870-35db6ace3693/scratchpad/rec/C","tempo":1.0,"maxgap":0.22,"html":"/tmp/claude-0/-home-user-yousef/a1a6bc2a-682e-5890-b870-35db6ace3693/scratchpad/vC/index.html","timing_js":"/tmp/claude-0/-home-user-yousef/a1a6bc2a-682e-5890-b870-35db6ace3693/scratchpad/vC/timing.js",
+"segments":[["c1","نهاية"],["c2","تقديم"],["c3","والرد"],["c4","حنا"],["c5","سيرتك"],["c6","وبدون"],["c7","روابط"],["c8","كانت"],["c9","احسبها"],["c10","ترشيح"]],
+"allscenes":["c1","c2","c3","c4","c5","c6","c7","c8","c9","c10"],"pad":{"_":0.08,"c10":0.6},
+"cues":{"c1":[0,"نهاية","السنة","ذروة"],"c2":["تقديم#1","تقديم#2","تقديم#3","تقديم#1","تقديم#2","تقديم#3"],
+"c3":[0,"والرد","ولا","ولا"],"c4":["حنا","نسلك","لك","نجهزك","نجهزك+0.1"],
+"c5":["سيرتك","سيرتك","Profilek|بروفايلك","Profilek|بروفايلك","وخطة"],"c6":["وبدون","تقديم","عشوائي"],
+"c7":["روابط","روابط","500","جهة","تناسبك","500"],"c8":["كانت","وأربعين","والحين","74","ريال","هللة"],
+"c9":["احسبها","احسبها+0.15","احسبها","صح"],"c10":[0,"ترشيح","شبكتك","ترشحك+0.3"]},
+"counters":{"c":["\\(t-s9\\.s-[\\d.]+\\)","s9",["c7","500"]]}}
