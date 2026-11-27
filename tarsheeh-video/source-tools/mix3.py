@@ -28,7 +28,7 @@ for k,off in CASH:
     s=[x for x in sc if x['k']==k][0]; fx.append(add(f'{X}/cash.mp3',s['s']+off,0.45,'f'))
 fc=';'.join(chains)
 fc+=f';{"".join(vo)}amix=inputs={len(vo)}:normalize=0,apad=whole_dur={DUR},highpass=f=70,acompressor=threshold=0.1:ratio=3:attack=5:release=120,equalizer=f=3500:t=q:w=1:g=2[vo]'
-fc+=f';{"".join(fx)}amix=inputs={len(fx)}:normalize=0,apad=whole_dur={DUR},volume=0.5,alimiter=limit=0.5[fx]'
+fc+=f';{"".join(fx)}amix=inputs={len(fx)}:normalize=0,apad=whole_dur={DUR},volume=0.3,alimiter=limit=0.35[fx]'
 fc+=f';[vo][fx]amix=inputs=2:normalize=0:duration=longest,atrim=0:{DUR},loudnorm=I=-14:TP=-1.0:LRA=9[out]'
 cmd=['ffmpeg','-v','error','-y']
 for p in inputs: cmd+=['-i',p]
