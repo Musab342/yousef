@@ -27,9 +27,9 @@ for e in sorted([e for e in d['ev'] if e['k'] in keys],key=lambda e:e['t']):
 for k,off in CASH:
     s=[x for x in sc if x['k']==k][0]; fx.append(add(f'{X}/cash.mp3',s['s']+off,0.45,'f'))
 fc=';'.join(chains)
-fc+=f';{"".join(vo)}amix=inputs={len(vo)}:normalize=0,apad=whole_dur={DUR},highpass=f=70,acompressor=threshold=0.1:ratio=3:attack=5:release=120,equalizer=f=3500:t=q:w=1:g=2[vo]'
+fc+=f';{"".join(vo)}amix=inputs={len(vo)}:normalize=0,apad=whole_dur={DUR},highpass=f=95,equalizer=f=230:t=q:w=1.2:g=-1.5,equalizer=f=3000:t=q:w=0.8:g=-2.5,equalizer=f=5500:t=q:w=1.5:g=-1.5,deesser=i=0.45:m=0.5:f=0.5,highshelf=f=9000:g=-1.5,acompressor=threshold=0.12:ratio=2:attack=15:release=200,alimiter=limit=0.9[vo]'
 fc+=f';{"".join(fx)}amix=inputs={len(fx)}:normalize=0,apad=whole_dur={DUR},volume=0.3,alimiter=limit=0.35[fx]'
-fc+=f';[vo][fx]amix=inputs=2:normalize=0:duration=longest,atrim=0:{DUR},loudnorm=I=-13:TP=-1.0:LRA=8[out]'
+fc+=f';[vo][fx]amix=inputs=2:normalize=0:duration=longest,atrim=0:{DUR},loudnorm=I=-14:TP=-1.5:LRA=7[out]'
 cmd=['ffmpeg','-v','error','-y']
 for p in inputs: cmd+=['-i',p]
 cmd+=['-filter_complex',fc,'-map','[out]','-ar','48000','-c:a','pcm_s16le',OUT]
