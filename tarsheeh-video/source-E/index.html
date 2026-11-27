@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ترشيح - قصتك ما توصل</title>
+<style>
+@font-face{font-family:A;font-weight:500;src:url(../vid/node_modules/@fontsource/alexandria/files/alexandria-arabic-500-normal.woff2)}
+@font-face{font-family:A;font-weight:700;src:url(../vid/node_modules/@fontsource/alexandria/files/alexandria-arabic-700-normal.woff2)}
+@font-face{font-family:A;font-weight:900;src:url(../vid/node_modules/@fontsource/alexandria/files/alexandria-arabic-900-normal.woff2)}
+@font-face{font-family:A;font-weight:500;src:url(../vid/node_modules/@fontsource/alexandria/files/alexandria-latin-500-normal.woff2);unicode-range:U+0000-00FF}
+@font-face{font-family:A;font-weight:700;src:url(../vid/node_modules/@fontsource/alexandria/files/alexandria-latin-700-normal.woff2);unicode-range:U+0000-00FF}
+@font-face{font-family:A;font-weight:900;src:url(../vid/node_modules/@fontsource/alexandria/files/alexandria-latin-900-normal.woff2);unicode-range:U+0000-00FF}
+:root{--bg:#E9ECD6;--n:#0E1A2B;--g:#1F9D74;--g2:#22B585;--r:#FF4D3D;--y:#FFC93C;--s:#6B7280}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#111;height:100%}
+body{display:flex;align-items:center;justify-content:center;font-family:A,sans-serif}
+#stage{width:540px;height:960px;position:relative;overflow:hidden;background:var(--bg)}
+.sc{position:absolute;inset:0;display:none;transform-origin:50% 50%;background:var(--bg)}
+.dark{background:radial-gradient(90% 70% at 50% 40%,#18263B,#0B1422 70%)}
+/* window light shadows */
+#shade{position:absolute;inset:-200px;pointer-events:none;z-index:40;mix-blend-mode:multiply;opacity:.16;filter:blur(18px);
+ background:repeating-linear-gradient(118deg,transparent 0 70px,#3a3f2a 70px 120px,transparent 120px 150px,#3a3f2a 150px 175px,transparent 175px 330px)}
+.grain{position:absolute;inset:0;pointer-events:none;z-index:41;opacity:.22;mix-blend-mode:multiply;
+ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .2  0 0 0 0 .2  0 0 0 0 .1  0 0 0 .45 0'/></filter><rect width='220' height='220' filter='url(%23n)'/></svg>")}
+#cap{position:absolute;left:30px;right:30px;bottom:56px;text-align:center;direction:ltr;font-weight:500;font-size:13px;color:var(--g);z-index:42;letter-spacing:.2px}
+.c{position:absolute;left:0;right:0;text-align:center}
+.el{will-change:transform,opacity,filter}
+.w9{font-weight:900}.w7{font-weight:700}.w5{font-weight:500}
+.cn{color:var(--n)}.cg{color:var(--g)}.cw{color:#fff}.cr{color:var(--r)}.cs{color:var(--s)}
+.pill{display:inline-block;background:var(--n);color:#fff;font-weight:700;border-radius:999px;padding:10px 34px;box-shadow:0 10px 24px rgba(14,26,43,.25)}
+.pillG{background:var(--g)} .pillR{background:var(--r)} .pillW{background:#fff;color:var(--n)}
+.glass{position:absolute;border-radius:28px;padding:10px;background:linear-gradient(145deg,rgba(255,255,255,.75),rgba(210,214,200,.6));box-shadow:0 0 0 2px rgba(255,255,255,.7) inset,0 0 26px 2px rgba(31,157,116,.55),0 22px 40px rgba(14,26,43,.25)}
+.glass video{width:100%;height:100%;object-fit:cover;border-radius:20px;display:block}
+.dlg{position:absolute;width:330px;background:#fff;border-radius:12px;box-shadow:0 18px 40px rgba(14,26,43,.28);overflow:hidden;color:var(--n)}
+.dlg .tb{height:28px;background:#EEF0F3;display:flex;align-items:center;gap:6px;padding:0 10px;direction:ltr}
+.dlg .tb i{width:10px;height:10px;border-radius:50%;background:#FF5F57;display:inline-block}
+.dlg .tb i:nth-child(2){background:#FEBC2E}.dlg .tb i:nth-child(3){background:#28C840}
+.dlg .tb span{margin-left:auto;font-size:10px;color:#6B7280;font-weight:500}
+.dlg .bd{display:flex;gap:12px;padding:14px 16px 10px;align-items:flex-start}
+.dlg .bd b{flex:0 0 30px;height:30px;border-radius:50%;background:var(--r);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900}
+.dlg .bd p{font-size:14px;font-weight:700;line-height:1.5}
+.dlg .bd small{display:block;font-size:11px;color:#6B7280;font-weight:500}
+.dlg .ft{display:flex;justify-content:flex-start;padding:0 16px 12px}
+.dlg .ft span{background:#2F6FED;color:#fff;font-size:11px;font-weight:700;border-radius:6px;padding:4px 16px}
+.logo{display:inline-flex;align-items:center;gap:10px}
+#ui{position:fixed;bottom:16px;left:16px;color:#fff;font:14px sans-serif;cursor:pointer;background:#1F9D74;padding:8px 14px;border-radius:8px}
+body.cap #ui{display:none}
+</style>
+</head>
+<body>
+<div id="stage">
+<div id="shade"></div><div class="grain"></div><div id="cap"></div>
+
+
+<style>
+.w{display:inline-block;will-change:transform,opacity,filter}
+.cv{display:inline-block}
+.strk{position:relative;display:inline-block}
+.strk i{position:absolute;left:-6px;right:-6px;top:52%;height:7px;background:var(--r);border-radius:4px;transform-origin:right}
+.mini{position:absolute;top:44px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:8px;font-weight:900;font-size:20px;color:var(--n);z-index:39}
+.mini svg{width:32px;height:32px}
+</style>
+<div class="mini" id="mini"><svg viewBox="0 0 64 64"><use href="#lg"/></svg>ترشيح</div>
+
+<!-- E1 نهاية السنة.. ذروة التوظيف -->
+<div class="sc" data-k="e1" data-tr="up" data-cap="End of the year: peak hiring season.">
+  <div class="el" data-a="pop" data-t="0.02" style="position:absolute;left:190px;top:180px"><svg width="160" height="160" viewBox="0 0 120 120"><use href="#cal"/></svg></div>
+  <div class="c el w9 cn" data-a="words" data-t="0.02,0.54" style="top:390px;font-size:68px">نهاية السنة</div>
+  <div class="c el w9 cg" data-a="stretch" data-t="1.28" style="top:500px;font-size:74px">ذروة التوظيف</div>
+</div>
+
+<!-- E2 تقديم تقديم تقديم -->
+<div class="sc" data-k="e2" data-tr="up" data-cap="Apply... apply... apply...">
+  <svg class="el" data-a="line" data-t="0.1" style="position:absolute;left:40px;top:600px" width="460" height="60" viewBox="0 0 460 60"><line x1="10" y1="30" x2="450" y2="30" stroke="#0E1A2B" stroke-width="5" stroke-linecap="round" stroke-dasharray="440" stroke-dashoffset="440"/></svg>
+  <div class="el w9 cn" data-a="blurin" data-t="0.02" style="position:absolute;right:40px;top:330px;font-size:60px">تقديم..</div>
+  <div class="el w9 cn" data-a="blurin" data-t="0.78" style="position:absolute;left:180px;top:420px;font-size:60px">تقديم..</div>
+  <div class="el w9 cr" data-a="blurin" data-t="1.52" style="position:absolute;left:30px;top:510px;font-size:60px">تقديم</div>
+  <div class="el" data-a="pop" data-t="0.02" style="position:absolute;right:42px;top:617px;width:26px;height:26px;border-radius:50%;background:var(--g)"></div>
+  <div class="el" data-a="pop" data-t="0.78" style="position:absolute;left:257px;top:617px;width:26px;height:26px;border-radius:50%;background:var(--g)"></div>
+  <div class="el" data-a="pop" data-t="1.52" style="position:absolute;left:42px;top:617px;width:26px;height:26px;border-radius:50%;background:var(--r)"></div>
+</div>
+
+<!-- E3 والرد؟ ولا شي! -->
+<div class="sc" data-k="e3" data-tr="down" data-vid="watch" data-cap="And the reply? Nothing!">
+  <div class="dlg el" data-a="pop" data-t="0.05" style="left:30px;top:180px;transform:rotate(-3deg)"><div class="tb"><i></i><i></i><i></i><span>Inbox</span></div><div class="bd"><b>!</b><p>نعتذر منك، تم اختيار مرشح آخر<small>شكرًا لاهتمامك بالوظيفة</small></p></div><div class="ft"><span>حسنًا</span></div></div>
+  <div class="dlg el" data-a="pop" data-t="0.25" style="left:180px;top:300px;transform:rotate(2deg)"><div class="tb"><i></i><i></i><i></i><span>Inbox</span></div><div class="bd"><b>!</b><p>للأسف لم يتم قبول طلبك<small>نتمنى لك التوفيق</small></p></div><div class="ft"><span>حسنًا</span></div></div>
+  <div class="glass el" data-a="slam" data-t="0.02" style="left:120px;top:250px;width:300px;height:470px;transform:rotate(-2deg)"><video id="v_watch" src="watch.mp4" muted playsinline preload="auto"></video></div>
+  <div class="dlg el" data-a="pop" data-t="0.22" style="left:236px;top:226px;width:250px;transform:rotate(5deg)"><div class="tb"><i></i><i></i><i></i><span>Inbox</span></div><div class="bd"><b>!</b><p>والرد؟<small>لا يوجد رسائل جديدة</small></p></div></div>
+  <div class="c el" data-a="stamp" data-t="0.8" style="top:745px"><span class="pill pillR" style="font-size:44px">ولا شي!</span></div>
+</div>
+
+<!-- E4 حنا ما نسلّك لك.. صريحين معك من أول استبيان (dark) -->
+<div class="sc dark" data-k="e4" data-tr="up" data-vid="tea" data-cap="No sugar-coating. We're honest with you from the first survey.">
+  <div class="c el w9 cw" data-a="words" data-o="0" data-t="0.02,0.44" style="top:170px;font-size:56px">حنا ما <span class="strk">نسلّك لك<i class="el" data-a="wipe" data-t="0.94"></i></span></div>
+  <div class="glass el" data-a="slam" data-t="1.35" style="left:110px;top:270px;width:320px;height:320px;transform:rotate(2deg)"><video id="v_tea" src="tea.mp4" muted playsinline preload="auto"></video></div>
+  <div class="c el" data-a="punch" data-t="1.83" style="top:630px"><span class="pill pillG" style="font-size:50px">صريحين معك</span></div>
+  <div class="c el w7" data-a="words" data-t="2.73,0.56" style="top:740px;font-size:38px;color:#B9C6D3">من أول استبيان</div>
+</div>
+
+<!-- E5 فيه غلط؟ نقوله لك بوضوح -->
+<div class="sc" data-k="e5" data-tr="down" data-cap="Something wrong? We tell you clearly, and how to fix it.">
+  <div class="glass el" data-a="slam" data-t="0" style="left:120px;top:150px;width:300px;height:240px;padding:24px;background:#fff">
+    <div style="height:14px;width:60%;background:#0E1A2B;border-radius:6px;margin-bottom:18px"></div>
+    <div style="height:9px;background:#D7DEE5;border-radius:5px;margin-bottom:12px"></div>
+    <div style="height:9px;width:85%;background:#D7DEE5;border-radius:5px;margin-bottom:12px"></div>
+    <div style="height:9px;background:#D7DEE5;border-radius:5px;margin-bottom:12px"></div>
+    <div style="height:9px;width:70%;background:#D7DEE5;border-radius:5px"></div>
+  </div>
+  <svg class="el" data-a="draw" data-t="0.3" style="position:absolute;left:240px;top:240px" width="150" height="70" viewBox="0 0 150 70"><ellipse cx="75" cy="35" rx="68" ry="28" fill="none" stroke="#FF4D3D" stroke-width="5" stroke-dasharray="320" stroke-dashoffset="320" stroke-linecap="round"/></svg>
+  <div class="c el" data-a="stamp" data-t="0.02" style="top:440px"><span class="pill pillR" style="font-size:46px">فيه غلط؟</span></div>
+  <div class="c el w9 cn" data-a="words" data-t="0.93,0.6" style="top:550px;font-size:58px">نقوله لك</div>
+  <div class="c el w9 cg" data-a="stretch" data-t="1.79" style="top:630px;font-size:74px">بوضوح</div>
+  <div class="c el w7 cs" data-a="words" data-t="2.66,1.22" style="top:760px;font-size:32px">ونعطيك نصايح تصلحه</div>
+</div>
+
+<!-- E6 الباقة الشاملة: pills on a cable -->
+<div class="sc" data-k="e6" data-tr="up" data-cap="ATS CV in both languages, cover letter, LinkedIn profile, visibility plan, network analysis.">
+  <svg class="el" data-a="cable" data-t="0" style="position:absolute;left:0;top:0" width="540" height="960" viewBox="0 0 540 960"><path d="M270 0 C 250 120, 300 200, 270 270 S 230 420, 270 470 S 310 600, 270 650 S 240 780, 270 860" fill="none" stroke="#0E1A2B" stroke-width="3" stroke-dasharray="1100" stroke-dashoffset="1100"/></svg>
+  <div class="c el" data-a="punch" data-t="0.05" style="top:130px"><span class="pill pillG" style="font-size:42px">الباقة الشاملة</span></div>
+  <div class="el" data-a="slideR" data-t="0.02" style="position:absolute;right:40px;top:260px"><span class="pill" style="font-size:30px">سيرة ATS باللغتين</span></div>
+  <div class="el" data-a="slideL" data-t="2.28" style="position:absolute;left:40px;top:370px"><span class="pill" style="font-size:30px">خطاب تقديم</span></div>
+  <div class="el" data-a="slideR" data-t="3.56" style="position:absolute;right:50px;top:480px"><span class="pill" style="font-size:30px">بروفايل لينكدإن</span></div>
+  <div class="el" data-a="slideL" data-t="4.86" style="position:absolute;left:30px;top:590px"><span class="pill" style="font-size:30px">خطة تحسين الظهور</span></div>
+  <div class="el" data-a="slideR" data-t="6.5" style="position:absolute;right:60px;top:700px"><span class="pill pillG" style="font-size:32px">وتحليل شبكتك</span></div>
+</div>
+
+<!-- E7 وروابط لـ500 جهة عمل -->
+<div class="sc" data-k="e7" data-tr="down" data-vid="papers" data-cap="Plus links to 500 employers.">
+  <div class="c el w7 cn" data-a="words" data-t="0.02,0.82" style="top:150px;font-size:44px">وروابط لـ</div>
+  <div class="c el w9 cg" data-a="punch" data-t="1.02" style="top:210px;font-size:170px;line-height:1"><span id="cnt">500</span></div>
+  <div class="c el" data-a="stamp" data-t="1.7" style="top:410px"><span class="pill" style="font-size:42px">جهة عمل</span></div>
+  <div class="glass el" data-a="slam" data-t="0.32" style="left:150px;top:510px;width:240px;height:330px;transform:rotate(-4deg)"><video id="v_papers" src="papers.mp4" muted playsinline preload="auto"></video></div>
+</div>
+
+<!-- E8 الرياض الغربية الشرقية: timeline -->
+<div class="sc" data-k="e8" data-tr="up" data-cap="In Riyadh, the Western and Eastern regions, matching your field.">
+  <div class="c el w7 cn" data-a="words" data-t="0.02" style="top:260px;font-size:40px">في</div>
+  <svg class="el" data-a="line" data-t="0.02" style="position:absolute;left:40px;top:400px" width="460" height="60" viewBox="0 0 460 60"><line x1="10" y1="30" x2="450" y2="30" stroke="#0E1A2B" stroke-width="5" stroke-linecap="round" stroke-dasharray="440" stroke-dashoffset="440"/></svg>
+  <div class="el" data-a="pop" data-t="0.12" style="position:absolute;right:40px;top:414px;width:32px;height:32px;border-radius:50%;background:var(--g)"></div>
+  <div class="el w9 cn" data-a="blurin" data-t="0.12" style="position:absolute;right:16px;top:470px;font-size:30px">الرياض</div>
+  <div class="el" data-a="pop" data-t="0.92" style="position:absolute;left:254px;top:414px;width:32px;height:32px;border-radius:50%;background:var(--g)"></div>
+  <div class="el w9 cn" data-a="blurin" data-t="0.92" style="position:absolute;left:222px;top:470px;font-size:30px">الغربية</div>
+  <div class="el" data-a="pop" data-t="1.94" style="position:absolute;left:40px;top:414px;width:32px;height:32px;border-radius:50%;background:var(--g)"></div>
+  <div class="el w9 cn" data-a="blurin" data-t="1.94" style="position:absolute;left:16px;top:470px;font-size:30px">الشرقية</div>
+  <div class="c el w9 cg" data-a="stretch" data-t="2.88" style="top:620px;font-size:58px;white-space:nowrap">تناسب تخصصك</div>
+</div>
+
+<!-- E9 السعر -->
+<div class="sc" data-k="e9" data-tr="down" data-vid="dance" data-cap="Was 149, now only 74.50 SAR, for a limited time.">
+  <div class="c el w9 cs" data-a="words" data-t="0.02,0.88" style="top:130px;font-size:46px">كانت بـ <span class="strk">149<i class="el" data-a="wipe" data-t="1.5"></i></span></div>
+  <div class="c el w7 cn" data-a="words" data-t="2.51" style="top:220px;font-size:44px">والحين</div>
+  <div class="c el w9 cg" data-a="punch" data-t="3.83" style="top:280px;font-size:150px;line-height:1">74.50</div>
+  <div class="c el w9 cn" data-a="words" data-t="4.35" style="top:450px;font-size:40px">ريال بس</div>
+  <div class="glass el" data-a="slam" data-t="5.39" style="left:140px;top:525px;width:260px;height:220px;transform:rotate(-3deg)"><video id="v_dance" src="dance.mp4" muted playsinline preload="auto"></video></div>
+  <div class="c el" data-a="stamp" data-t="5.99" style="top:780px"><span class="pill pillR" style="font-size:36px">لفترة محدودة</span></div>
+</div>
+
+<!-- E10 احسبها صح -->
+<div class="sc" data-k="e10" data-tr="up" data-cap="Do the math.">
+  <div class="el" data-a="slam" data-t="0.02" style="position:absolute;left:180px;top:200px;transform:rotate(-6deg)"><svg width="180" height="230" viewBox="0 0 44 56"><use href="#calc"/></svg></div>
+  <div class="c el w9 cn" data-a="words" data-t="0.02" style="top:480px;font-size:84px">احسبها</div>
+  <div class="c el w9 cg" data-a="stretch" data-t="0.6" style="top:590px;font-size:96px">صح</div>
+</div>
+
+<!-- E11 end -->
+<div class="sc" data-k="e11" data-tr="down" data-cap="Tarsheeh: your CV gets you referred.">
+  <div class="c el" data-a="punch" data-t="0" style="top:250px"><svg width="170" height="170" viewBox="0 0 64 64"><use href="#lg"/></svg></div>
+  <div class="c el w9 cn" data-a="words" data-t="0.02" style="top:440px;font-size:84px">ترشيح</div>
+  <div class="c el w7 cg" data-a="stretch" data-t="0.9" style="top:560px;font-size:48px">سيرتك ترشّحك</div>
+  <div class="c el" data-a="blurin" data-t="1.84" style="top:680px"><span class="pill pillW" style="font-size:18px;direction:ltr;padding:8px 22px">@tarsheeh.sa · tarsheehsa.com</span></div>
+</div>
+
+</div>
+<div id="ui">▶ إعادة</div>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <g id="lg"><path d="M10 6h44a6 6 0 0 1 6 6v30a6 6 0 0 1-6 6H26l-12 10v-10h-4a6 6 0 0 1-6-6V12a6 6 0 0 1 6-6z" fill="#22B585"/><g stroke="#fff" stroke-width="3"><line x1="32" y1="16" x2="20" y2="36"/><line x1="32" y1="16" x2="44" y2="36"/><line x1="20" y1="36" x2="44" y2="36"/></g><g fill="#fff"><circle cx="32" cy="16" r="5"/><circle cx="20" cy="36" r="5"/><circle cx="44" cy="36" r="5"/></g></g>
+  <g id="cal"><rect x="10" y="18" width="100" height="92" rx="14" fill="#fff" stroke="#0E1A2B" stroke-width="4"/><path d="M10 32a14 14 0 0 1 14-14h72a14 14 0 0 1 14 14v12H10z" fill="#1F9D74" stroke="#0E1A2B" stroke-width="4"/><rect x="32" y="8" width="8" height="20" rx="4" fill="#0E1A2B"/><rect x="80" y="8" width="8" height="20" rx="4" fill="#0E1A2B"/><text x="60" y="92" text-anchor="middle" font-family="A" font-weight="900" font-size="40" fill="#0E1A2B">31</text><text x="60" y="58" text-anchor="middle" font-family="A" font-weight="700" font-size="11" fill="#64748B">DEC</text></g>
+  <g id="calc"><rect x="2" y="2" width="40" height="52" rx="7" fill="#0E1A2B"/><rect x="7" y="7" width="30" height="12" rx="3" fill="#B7F0D8"/><text x="34" y="16.5" text-anchor="end" font-family="A" font-weight="900" font-size="8" fill="#0E1A2B">74.5</text><g fill="#fff"><rect x="7" y="23" width="8" height="7" rx="2"/><rect x="18" y="23" width="8" height="7" rx="2"/><rect x="7" y="33" width="8" height="7" rx="2"/><rect x="18" y="33" width="8" height="7" rx="2"/><rect x="7" y="43" width="8" height="7" rx="2"/><rect x="18" y="43" width="8" height="7" rx="2"/></g><rect x="29" y="23" width="8" height="27" rx="2" fill="#1F9D74"/></g>
+</defs></svg>
+<script src="timing.js"></script>
+<script>
+const cap=location.search.includes('cap'); if(cap) document.body.classList.add('cap');
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const backOut=(p,s=1.9)=>{p=p-1;return p*p*((s+1)*p+s)+1};
+const expoOut=p=>p>=1?1:1-Math.pow(2,-10*p);
+const expoInOut=p=>p<=0?0:p>=1?1:p<.5?Math.pow(2,20*p-10)/2:(2-Math.pow(2,-20*p+10))/2;
+const TR=.42;
+let acc=0;
+const scenes=[...document.querySelectorAll('.sc')].map(el=>{const d=TIMING[el.dataset.k];const s={el,k:el.dataset.k,s:acc,e:acc+d,tr:el.dataset.tr,cap:el.dataset.cap||'',els:[...el.querySelectorAll('.el')]};acc+=d;return s;});
+const DUR=acc; window.DUR=DUR; window.SCENES=scenes.map(s=>({k:s.k,s:s.s,e:s.e}));
+// split 'words' elements into word spans
+document.querySelectorAll('.el[data-a="words"]').forEach(e=>{
+  const walk=n=>{[...n.childNodes].forEach(c=>{ if(c.nodeType===3){ const parts=c.textContent.split(/(\s+)/); const frag=document.createDocumentFragment(); parts.forEach(p=>{ if(/^\s+$/.test(p)||!p){frag.appendChild(document.createTextNode(p));} else {const sp=document.createElement('span');sp.className='w';sp.textContent=p;frag.appendChild(sp);} }); c.replaceWith(frag);} else if(c.nodeType===1 && !c.classList.contains('el')) { if(c.classList.contains('strk')){c.classList.add('w');} else walk(c);} });};
+  walk(e); e._w=[...e.querySelectorAll(':scope .w')];
+});
+scenes.forEach(sc=>sc.els.forEach(e=>{e._b=e.style.transform||'';const t=(e.dataset.t||'0').split(',');e._t=+t[0];e._d=t[1]?+t[1]:null;}));
+const vids={}; document.querySelectorAll('video').forEach(v=>vids[v.id.slice(2)]=v);
+const capEl=document.getElementById('cap'), shade=document.getElementById('shade'), mini=document.getElementById('mini');
+function apply(e,tl){
+  const a=e.dataset.a,t0=e._t,x=tl-t0,b=e._b;let tr='',op=1,fl='';
+  if(a==='blurin'){const k=expoOut(clamp(x/.45));tr=`translateY(${(1-k)*34}px) scale(${1.12-.12*k})`;op=clamp(x/.18);fl=`blur(${(1-k)*14}px)`;}
+  else if(a==='words'){op=x>-0.01?1:0; const n=e._w.length, dd=e._d||Math.min(.9,.22*n);
+    e._w.forEach((w,i)=>{const wx=x-(n>1?dd*i/(n-1):0); const k=expoOut(clamp(wx/.35)); w.style.opacity=clamp(wx/.12); w.style.transform=`translateX(${(1-k)*-26}px) translateY(${(1-k)*10}px)`; w.style.filter=`blur(${(1-k)*8}px)`;});}
+  else if(a==='punch'){const k=backOut(clamp(x/.4),2.2);tr=`scale(${2-k})`;op=clamp(x/.08);fl=`blur(${(1-clamp(x/.18))*10}px)`;}
+  else if(a==='pop'){const k=backOut(clamp(x/.35),2.2);tr=`scale(${k})`;op=clamp(x/.06);}
+  else if(a==='slam'){const k=backOut(clamp(x/.38),1.5);tr=`translateY(${(1-k)*220}px) scale(${1.3-.3*k})`;op=clamp(x/.08);fl=`blur(${(1-clamp(x/.22))*12}px)`;}
+  else if(a==='stamp'){const k=backOut(clamp(x/.3),2.4);tr=`scale(${2.1-1.1*k}) rotate(${(1-k)*-8}deg)`;op=clamp(x/.07);}
+  else if(a==='slideR'||a==='slideL'){const k=backOut(clamp(x/.45),1.4),d=a==='slideR'?1:-1;tr=`translateX(${(1-k)*420*d}px)`;op=clamp(x/.05);fl=`blur(${(1-clamp(x/.25))*10}px)`;}
+  else if(a==='wipe'){const k=expoOut(clamp(x/.35));tr=`scaleX(${k})`;op=k>0?1:0;}
+  else if(a==='stretch'){const p=clamp(x/.7);tr=`scaleX(${.35+.65*backOut(clamp(x/.55),1.3)})`;op=clamp(x/.12);e.style.letterSpacing=`${(1-expoOut(p))*-8}px`;fl=`blur(${(1-clamp(x/.25))*8}px)`;}
+  else if(a==='line'){const l=e.querySelector('line');l.setAttribute('stroke-dashoffset',440*(1-expoOut(clamp(x/1.1))));op=x>0?1:0;}
+  else if(a==='cable'){const p=e.querySelector('path');p.setAttribute('stroke-dashoffset',1100*(1-expoOut(clamp(x/2.5))));op=x>0?1:0;}
+  else if(a==='draw'){const c=e.querySelector('ellipse');c.setAttribute('stroke-dashoffset',320*(1-expoOut(clamp(x/.5))));op=x>0?1:0;}
+  if(['pop','slam','stamp'].includes(a)&&x>.5) tr+=` translateY(${Math.sin((tl+t0)*2.2)*3}px)`;
+  e.style.transform=(tr+' '+b).trim(); e.style.opacity=op; e.style.filter=fl.trim();
+}
+function place(sc,t,off,blur){
+  const tl=t-sc.s, d=sc.e-sc.s;
+  sc.el.style.display='block';
+  sc.el.style.transform=`translateY(${off}px) scale(${1+Math.min(tl,d)*.006})`;
+  sc.el.style.filter=blur>0.3?`blur(${blur}px)`:'';
+  sc.els.forEach(e=>apply(e,Math.min(tl,d+TR)));
+}
+function render(t){
+  const need={};
+  scenes.forEach(s=>s.el.style.display='none');
+  const i=scenes.findIndex(s=>t>=s.s&&t<s.e); if(i<0) return need;
+  const sc=scenes[i], tl=t-sc.s;
+  shade.style.transform=`translate(${Math.sin(t*.25)*30}px,${(t*6)%120-60}px)`;
+  if(i>0 && tl<TR){
+    const p=expoInOut(tl/TR), dir=sc.tr==='down'?-1:1, blur=Math.sin(p*Math.PI)*14;
+    place(scenes[i-1],t,-dir*960*p,blur); place(sc,t,dir*960*(1-p),blur);
+    if(scenes[i-1].el.dataset.vid){const v=vids[scenes[i-1].el.dataset.vid];need[scenes[i-1].el.dataset.vid]=Math.min(v.duration-.06,(t-scenes[i-1].s)*Math.min(1,(v.duration-.06)/(scenes[i-1].e-scenes[i-1].s)));}
+  } else place(sc,t,0,0);
+  if(sc.el.dataset.vid){const v=vids[sc.el.dataset.vid];const r=Math.min(1,(v.duration-.06)/(sc.e-sc.s));need[sc.el.dataset.vid]=tl*r;}
+  const dark=sc.el.classList.contains('dark');
+  capEl.textContent=sc.cap; capEl.style.opacity=clamp((tl-TR*.6)/.3); capEl.style.color=dark?'#22B585':'#1F9D74';
+  shade.style.opacity=dark?0:.16; mini.style.color=dark?'#fff':'#0E1A2B'; mini.style.opacity=sc.k==='e11'?0:1;
+  const c=document.getElementById('cnt'), s7=scenes.find(s=>s.k==='e7'); if(c&&s7) c.textContent=Math.round(500*expoOut(clamp((t-s7.s-1.02)/.9)));
+  return need;
+}
+window.renderAt=async t=>{const need=render(t);for(const k in need){const v=vids[k];const vt=Math.max(0,Math.min(need[k],v.duration-.05));if(Math.abs(v.currentTime-vt)>.001)await new Promise(r=>{v.onseeked=r;v.currentTime=vt;});}await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));};
+if(!cap){let st=performance.now();document.getElementById('ui').onclick=()=>st=performance.now();
+ (function loop(){const t=((performance.now()-st)/1000)%DUR;const need=render(t);for(const k in vids){const v=vids[k];if(k in need){if(v.paused)v.play().catch(()=>{});if(Math.abs(v.currentTime-need[k])>.3)v.currentTime=need[k];}else if(!v.paused)v.pause();}requestAnimationFrame(loop)})();}
+</script>
+</body>
+</html>

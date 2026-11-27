@@ -61,6 +61,8 @@ for sc,ws in segs:
 html=open(cfg['html']).read()
 def cue(sc,c):
     if isinstance(c,(int,float)): return c
+    if '~' in c:
+        x,y=c.split('~'); t0=cue(sc,x); t1=cue(sc,y); return f"{t0},{round(max(0.05,t1-t0),2)}"
     m=re.match(r'([^+#]+)(?:#(\d+))?(?:\+([\d.]+))?$',c); words,nth,off=m.group(1).split('|'),int(m.group(2) or 1),float(m.group(3) or 0)
     cnt=0
     for w,t in res[sc]['w']:
