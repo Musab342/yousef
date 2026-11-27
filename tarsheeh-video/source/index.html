@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ترشيح - الباقة الشاملة</title>
+<style>
+@font-face{font-family:A;font-weight:400;src:url(node_modules/@fontsource/alexandria/files/alexandria-arabic-400-normal.woff2)}
+@font-face{font-family:A;font-weight:600;src:url(node_modules/@fontsource/alexandria/files/alexandria-arabic-600-normal.woff2)}
+@font-face{font-family:A;font-weight:800;src:url(node_modules/@fontsource/alexandria/files/alexandria-arabic-800-normal.woff2)}
+@font-face{font-family:A;font-weight:900;src:url(node_modules/@fontsource/alexandria/files/alexandria-arabic-900-normal.woff2)}
+@font-face{font-family:A;font-weight:400;src:url(node_modules/@fontsource/alexandria/files/alexandria-latin-400-normal.woff2);unicode-range:U+0000-00FF}
+@font-face{font-family:A;font-weight:800;src:url(node_modules/@fontsource/alexandria/files/alexandria-latin-800-normal.woff2);unicode-range:U+0000-00FF}
+@font-face{font-family:A;font-weight:900;src:url(node_modules/@fontsource/alexandria/files/alexandria-latin-900-normal.woff2);unicode-range:U+0000-00FF}
+:root{--bg:#E3F3EA;--g:#1F9D74;--g2:#22B585;--n:#0E1A2B;--r:#FF3B3B;--y:#FFD23F;--gr:#64748B}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#111;height:100%}
+body{display:flex;align-items:center;justify-content:center;font-family:A,sans-serif}
+#stage{width:540px;height:960px;position:relative;overflow:hidden;background:var(--bg)}
+#stage::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;mix-blend-mode:multiply;
+ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .1  0 0 0 0 .2  0 0 0 0 .15  0 0 0 .55 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>")}
+.sc{position:absolute;inset:0;display:none}
+.brand{position:absolute;top:44px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:8px;color:var(--g);font-weight:800;font-size:22px;z-index:5}
+.brand svg{width:40px;height:40px}
+.brand small{display:block;font-size:11px;font-weight:600;letter-spacing:.5px;color:var(--gr);font-family:A}
+.c{position:absolute;left:0;right:0;text-align:center}
+.el{will-change:transform,opacity}
+.big{font-weight:900;color:var(--g);line-height:1.05}
+.nv{color:var(--n)}
+.rd{color:var(--r)}
+.mark{position:relative;display:inline-block;padding:0 10px}
+.mark i{position:absolute;inset:auto 0 6px 0;height:38%;background:var(--y);z-index:-1;transform-origin:right;border-radius:4px}
+.tag{display:inline-block;background:var(--r);color:#fff;font-weight:800;padding:8px 18px;border-radius:12px;box-shadow:0 6px 0 rgba(14,26,43,.18)}
+.tagg{background:var(--g)}
+.tagn{background:var(--n)}
+.paper{background:#fff;border-radius:14px;box-shadow:0 10px 24px rgba(14,26,43,.18);padding:14px 18px;color:var(--n);font-weight:800}
+.frame{position:absolute;border:8px solid var(--r);border-radius:26px;overflow:hidden;background:var(--r);box-shadow:0 18px 40px rgba(14,26,43,.3)}
+.frame video{width:100%;height:100%;object-fit:cover;object-position:50% 0;display:block;border-radius:16px}
+.stamp{position:absolute;width:150px;height:150px;border-radius:50%;background:var(--r);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 0 rgba(0,0,0,.12)}
+.item{display:flex;align-items:center;gap:12px;background:#fff;border-radius:16px;padding:13px 18px;margin:0 auto 12px;width:400px;font-weight:800;font-size:21px;color:var(--n);box-shadow:0 8px 0 rgba(31,157,116,.25)}
+.item b{flex:0 0 34px;height:34px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center}
+.pin{display:inline-flex;flex-direction:column;align-items:center;margin:0 8px}
+.pin span{margin-top:8px;font-weight:900;font-size:26px;color:var(--n)}
+#ui{position:fixed;bottom:16px;left:16px;color:#fff;font:14px sans-serif;cursor:pointer;background:#1F9D74;padding:8px 14px;border-radius:8px}
+body.cap #ui{display:none}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- shared brand header -->
+<div class="brand" id="hdr">
+  <svg viewBox="0 0 64 64"><use href="#logo"/></svg>
+  <div>ترشيح<small>tarsheeh.sa</small></div>
+</div>
+
+<!-- 1: نهاية 2026 -->
+<div class="sc" data-s="0" data-e="1.7">
+  <div class="c el" data-a="up" data-t=".05" style="top:300px;font-size:58px;font-weight:800" ><span class="nv">نهاية</span></div>
+  <div class="c el big" data-a="pop" data-t=".35" style="top:380px;font-size:150px">2026</div>
+  <div class="c el" data-a="pop" data-t=".8" style="top:590px"><svg width="70" height="90" viewBox="0 0 24 30"><use href="#flame"/></svg></div>
+</div>
+
+<!-- 2: فترة ذروة التوظيف -->
+<div class="sc" data-s="1.7" data-e="3.5">
+  <div class="c el" data-a="up" style="top:170px;font-size:46px;font-weight:800" ><span class="nv">فترة</span></div>
+  <div class="el" data-a="pop" data-t=".1" style="position:absolute;left:110px;top:260px;width:320px;height:320px">
+    <svg viewBox="0 0 200 200" width="320" height="320">
+      <circle cx="100" cy="100" r="92" fill="#fff" stroke="#0E1A2B" stroke-width="6"/>
+      <g stroke="#0E1A2B" stroke-width="4" stroke-linecap="round">
+        <line x1="100" y1="18" x2="100" y2="32"/><line x1="100" y1="168" x2="100" y2="182"/>
+        <line x1="18" y1="100" x2="32" y2="100"/><line x1="168" y1="100" x2="182" y2="100"/>
+      </g>
+      <line id="hh" x1="100" y1="100" x2="100" y2="58" stroke="#0E1A2B" stroke-width="8" stroke-linecap="round"/>
+      <line id="mh" x1="100" y1="100" x2="100" y2="34" stroke="#FF3B3B" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="100" cy="100" r="8" fill="#0E1A2B"/>
+    </svg>
+  </div>
+  <div class="el" data-a="stamp" data-t=".55" style="position:absolute;right:40px;top:520px;transform-origin:center">
+    <div class="tag" style="font-size:42px;padding:14px 26px;border-radius:22px">ذروة التوظيف!</div>
+  </div>
+</div>
+
+<!-- 3: الحق وجهز نفسك -->
+<div class="sc" data-s="3.5" data-e="5.1">
+  <div class="c el big" data-a="pop" style="top:300px;font-size:130px">الحق</div>
+  <div class="c el" data-a="up" data-t=".45" style="top:480px;font-size:64px;font-weight:900;color:var(--n)">
+    <span class="mark">وجهّز نفسك<i class="el" data-a="wipe" data-t=".75"></i></span>
+  </div>
+  <div class="c el" data-a="pop" data-t="1" style="top:600px"><svg width="56" height="72" viewBox="0 0 24 30"><use href="#flame"/></svg></div>
+</div>
+
+<!-- 4: ما راح نسلك لك -->
+<div class="sc" data-s="5.1" data-e="6.9">
+  <div class="c el big" data-a="pop" style="top:200px;font-size:96px"><span class="rd">ما راح</span></div>
+  <div class="c el" data-a="up" data-t=".3" style="top:330px;font-size:70px;font-weight:900;color:var(--n)">نسلّك لك</div>
+  <div class="el" data-a="stamp" data-t=".65" style="position:absolute;left:195px;top:480px">
+    <div class="stamp"><svg width="90" height="90" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19" stroke="#fff" stroke-width="3.4" stroke-linecap="round"/></svg></div>
+  </div>
+  <div class="el" data-a="pop" data-t=".95" style="position:absolute;right:70px;top:440px;transform:rotate(8deg)">
+    <div class="paper" style="font-size:20px">«تسليك»</div>
+  </div>
+</div>
+
+<!-- 5: صريحين + استبيان -->
+<div class="sc" data-s="6.9" data-e="8.7">
+  <div class="c el" data-a="up" style="top:190px;font-size:44px;font-weight:800;color:var(--n)">بنكون</div>
+  <div class="c el big" data-a="pop" data-t=".2" style="top:255px;font-size:72px;white-space:nowrap">صريحين معك</div>
+  <div class="el" data-a="drop" data-t=".6" style="position:absolute;left:100px;top:420px;width:340px">
+    <div class="paper" style="padding:22px 24px;transform:rotate(-4deg)">
+      <div style="font-size:26px;color:var(--g);margin-bottom:14px">استبيان قبل نبدأ</div>
+      <div class="el" data-a="fade" data-t=".9" style="display:flex;gap:10px;align-items:center;margin-bottom:10px;font-size:18px"><svg width="26" height="26" viewBox="0 0 24 24"><use href="#chk"/></svg>خبرتك</div>
+      <div class="el" data-a="fade" data-t="1.1" style="display:flex;gap:10px;align-items:center;margin-bottom:10px;font-size:18px"><svg width="26" height="26" viewBox="0 0 24 24"><use href="#chk"/></svg>إنجازاتك</div>
+      <div class="el" data-a="fade" data-t="1.3" style="display:flex;gap:10px;align-items:center;font-size:18px"><svg width="26" height="26" viewBox="0 0 24 24"><use href="#chk"/></svg>وش تبي توصل له</div>
+    </div>
+  </div>
+</div>
+
+<!-- 6: سيرتك وبروفايلك يبيضون وجهك (video) -->
+<div class="sc" data-s="8.7" data-e="11.3" data-vid="1">
+  <div class="c el" data-a="up" style="top:120px;font-size:50px;font-weight:900;color:var(--n)">سيرتك وبروفايلك</div>
+  <div class="frame el" data-a="pop" data-t=".2" style="left:50px;top:230px;width:440px;height:400px;transform:rotate(-3deg)">
+    <video id="v" src="dance.mp4" muted playsinline preload="auto"></video>
+  </div>
+  <div class="el" data-a="stamp" data-t=".7" style="position:absolute;left:0;right:0;top:590px;text-align:center">
+    <span class="tag" style="font-size:52px;padding:12px 30px;background:var(--y);color:var(--n);border-radius:20px">يبيّضون وجهك</span>
+  </div>
+  <div class="c el" data-a="up" data-t="1.2" style="top:720px;font-size:38px;font-weight:800;color:var(--g)">ويوصلون صح</div>
+</div>
+
+<!-- 7: غلط -> نقولها لك بوضوح -->
+<div class="sc" data-s="11.3" data-e="13.3">
+  <div class="c el" data-a="up" style="top:190px;font-size:40px;font-weight:800;color:var(--n)">في سيرتك أو بروفايلك</div>
+  <div class="c el" data-a="stamp" data-t=".25" style="top:260px"><span class="tag" style="font-size:66px;padding:10px 30px">شي غلط؟</span></div>
+  <div class="c el big" data-a="pop" data-t=".8" style="top:430px;font-size:76px">نقولها لك</div>
+  <div class="c el" data-a="up" data-t="1" style="top:530px;font-size:70px;font-weight:900;color:var(--n)"><span class="mark">بوضوح<i class="el" data-a="wipe" data-t="1.2"></i></span></div>
+  <div class="c el" data-a="up" data-t="1.35" style="top:660px;font-size:28px;font-weight:600;color:var(--gr)">ونعطيك نصايح تصلحه</div>
+</div>
+
+<!-- 8: الباقة الشاملة -->
+<div class="sc" data-s="13.3" data-e="17">
+  <div class="c el" data-a="up" style="top:130px;font-size:30px;font-weight:800;color:var(--n)">وش فيها</div>
+  <div class="c el" data-a="pop" data-t=".1" style="top:175px"><span class="tag tagg" style="font-size:52px;padding:10px 28px;border-radius:20px">الباقة الشاملة</span></div>
+  <div style="position:absolute;top:300px;left:0;right:0">
+    <div class="item el" data-a="slide" data-t=".5"><b><svg width="20" height="20" viewBox="0 0 24 24"><use href="#tick"/></svg></b>سيرة ATS باللغتين</div>
+    <div class="item el" data-a="slide" data-t=".85"><b><svg width="20" height="20" viewBox="0 0 24 24"><use href="#tick"/></svg></b>خطاب تقديم</div>
+    <div class="item el" data-a="slide" data-t="1.2"><b><svg width="20" height="20" viewBox="0 0 24 24"><use href="#tick"/></svg></b>نصوص بروفايل لينكدإن</div>
+    <div class="item el" data-a="slide" data-t="1.55"><b><svg width="20" height="20" viewBox="0 0 24 24"><use href="#tick"/></svg></b>خطة ظهور لينكدإن</div>
+    <div class="item el" data-a="slide" data-t="1.9"><b><svg width="20" height="20" viewBox="0 0 24 24"><use href="#tick"/></svg></b>تحليل شبكتك</div>
+    <div class="item el" data-a="slide" data-t="2.25" style="background:var(--n);color:#fff"><b style="background:var(--y)"><svg width="20" height="20" viewBox="0 0 24 24"><use href="#link"/></svg></b>وقائمة روابط...</div>
+  </div>
+</div>
+
+<!-- 9: 500 جهة عمل -->
+<div class="sc" data-s="17" data-e="19.6">
+  <div class="c el" data-a="up" style="top:200px;font-size:42px;font-weight:800;color:var(--n)">قائمة روابط لـ</div>
+  <div class="c el big" data-a="pop" data-t=".15" style="top:260px;font-size:190px"><span id="cnt">500</span></div>
+  <div class="c el" data-a="stamp" data-t=".9" style="top:490px"><span class="tag" style="font-size:54px;padding:10px 30px;background:var(--y);color:var(--n)">جهة عمل</span></div>
+  <div class="c el" data-a="up" data-t="1.4" style="top:620px;font-size:46px;font-weight:900;color:var(--g)">تناسب تخصصك</div>
+  <div class="el" data-a="pop" data-t="1.1" style="position:absolute;left:52px;top:240px;transform:rotate(-14deg)"><svg width="74" height="74" viewBox="0 0 24 24"><use href="#linkc"/></svg></div>
+</div>
+
+<!-- 10: فرصتك أعلى -->
+<div class="sc" data-s="19.6" data-e="21.2">
+  <div class="c el" data-a="up" style="top:260px;font-size:52px;font-weight:800;color:var(--n)">وفرصتك فيها</div>
+  <div class="c el big" data-a="pop" data-t=".3" style="top:350px;font-size:92px;white-space:nowrap">تكون أعلى</div>
+  <div class="el" data-a="rise" data-t=".6" style="position:absolute;left:220px;top:500px"><svg width="100" height="150" viewBox="0 0 40 60"><path d="M20 2 L38 24 H27 V58 H13 V24 H2 Z" fill="#FF3B3B"/></svg></div>
+</div>
+
+<!-- 11: المناطق -->
+<div class="sc" data-s="21.2" data-e="23">
+  <div class="c el" data-a="up" style="top:200px;font-size:36px;font-weight:800;color:var(--n)">الـ500 جهة حاليًا في</div>
+  <div class="c" style="top:330px">
+    <div class="pin el" data-a="drop" data-t=".25"><svg width="70" height="92" viewBox="0 0 24 32"><use href="#pin"/></svg><span>الرياض</span></div>
+    <div class="pin el" data-a="drop" data-t=".5"><svg width="70" height="92" viewBox="0 0 24 32"><use href="#pin"/></svg><span>الغربية</span></div>
+    <div class="pin el" data-a="drop" data-t=".75"><svg width="70" height="92" viewBox="0 0 24 32"><use href="#pin"/></svg><span>الشرقية</span></div>
+  </div>
+  <div class="c el" data-a="stamp" data-t="1.1" style="top:560px"><span class="tag tagn" style="font-size:44px;padding:8px 30px">بس</span></div>
+</div>
+
+<!-- 12: السعر -->
+<div class="sc" data-s="23" data-e="26.2">
+  <div class="c el" data-a="up" style="top:170px;font-size:56px;font-weight:900;color:var(--gr)">قبل <span style="position:relative;display:inline-block">149<i class="el" data-a="wipe" data-t=".45" style="position:absolute;left:-6px;right:-6px;top:50%;height:9px;background:var(--r);border-radius:6px;transform-origin:right"></i></span></div>
+  <div class="c el" data-a="up" data-t=".8" style="top:290px;font-size:50px;font-weight:800;color:var(--n)">الحين</div>
+  <div class="c el big" data-a="pop" data-t="1" style="top:350px;font-size:150px">74.50</div>
+  <div class="c el" data-a="up" data-t="1.2" style="top:530px;font-size:46px;font-weight:900;color:var(--n)">ريال</div>
+  <div class="el" data-a="stamp" data-t="1.6" style="position:absolute;left:0;right:0;top:640px;text-align:center"><span class="tag" style="font-size:44px;padding:12px 30px;transform:rotate(-4deg)">لفترة محدودة</span></div>
+</div>
+
+<!-- 13: End card -->
+<div class="sc" data-s="26.2" data-e="29" id="end" style="background:var(--g)">
+  <div class="c el" data-a="pop" style="top:290px"><svg width="170" height="170" viewBox="0 0 64 64"><use href="#logow"/></svg></div>
+  <div class="c el" data-a="up" data-t=".25" style="top:480px;font-size:72px;font-weight:900;color:#fff">ترشيح</div>
+  <div class="c el" data-a="up" data-t=".45" style="top:590px;font-size:34px;font-weight:600;color:#E3F3EA">شبكتك ترشّحك</div>
+  <div class="c el" data-a="fade" data-t=".8" style="top:700px;font-size:24px;font-weight:800;color:#fff;direction:ltr">@tarsheeh.sa &nbsp;|&nbsp; tarsheehsa.com</div>
+</div>
+
+</div>
+<div id="ui">▶ إعادة</div>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <g id="logo"><path d="M10 6h44a6 6 0 0 1 6 6v30a6 6 0 0 1-6 6H26l-12 10v-10h-4a6 6 0 0 1-6-6V12a6 6 0 0 1 6-6z" fill="#22B585"/>
+      <g stroke="#fff" stroke-width="3"><line x1="32" y1="16" x2="20" y2="36"/><line x1="32" y1="16" x2="44" y2="36"/><line x1="20" y1="36" x2="44" y2="36"/></g>
+      <g fill="#fff"><circle cx="32" cy="16" r="5"/><circle cx="20" cy="36" r="5"/><circle cx="44" cy="36" r="5"/></g></g>
+    <g id="logow"><path d="M10 6h44a6 6 0 0 1 6 6v30a6 6 0 0 1-6 6H26l-12 10v-10h-4a6 6 0 0 1-6-6V12a6 6 0 0 1 6-6z" fill="#fff"/>
+      <g stroke="#1F9D74" stroke-width="3"><line x1="32" y1="16" x2="20" y2="36"/><line x1="32" y1="16" x2="44" y2="36"/><line x1="20" y1="36" x2="44" y2="36"/></g>
+      <g fill="#1F9D74"><circle cx="32" cy="16" r="5"/><circle cx="20" cy="36" r="5"/><circle cx="44" cy="36" r="5"/></g></g>
+    <g id="flame"><path d="M12 1c1 5 7 8 7 16a7 7 0 0 1-14 0c0-4 2-6 3-8 0 3 1 5 3 5 0-5-1-9 1-13z" fill="#FF3B3B"/><path d="M12 14c1 3 4 4 4 8a4 4 0 0 1-8 0c0-2 1-3 2-4 0 2 1 2 2 2 0-2-1-4 0-6z" fill="#FFD23F"/></g>
+    <g id="chk"><rect x="2" y="2" width="20" height="20" rx="5" fill="#1F9D74"/><path d="M7 12l3.5 3.5L17 9" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g id="tick"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g id="link"><g stroke="#0E1A2B" stroke-width="2.6" fill="none" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.6 0l3-3a4 4 0 0 0-5.6-5.6l-1 1"/><path d="M14 10a4 4 0 0 0-5.6 0l-3 3a4 4 0 0 0 5.6 5.6l1-1"/></g></g>
+    <g id="linkc"><circle cx="12" cy="12" r="12" fill="#0E1A2B"/><g stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"><path d="M10.5 13.5a3 3 0 0 0 4.2 0l2.2-2.2a3 3 0 0 0-4.2-4.2l-.8.8"/><path d="M13.5 10.5a3 3 0 0 0-4.2 0l-2.2 2.2a3 3 0 0 0 4.2 4.2l.8-.8"/></g></g>
+    <g id="pin"><path d="M12 1a10 10 0 0 0-10 10c0 8 10 20 10 20s10-12 10-20A10 10 0 0 0 12 1z" fill="#FF3B3B"/><circle cx="12" cy="11" r="4" fill="#fff"/></g>
+  </defs>
+</svg>
+
+<script>
+const DUR=29;
+const cap=location.search.includes('cap');
+if(cap) document.body.classList.add('cap');
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const backOut=p=>{const s=2.2;p=p-1;return p*p*((s+1)*p+s)+1};
+const expoOut=p=>p>=1?1:1-Math.pow(2,-10*p);
+const scenes=[...document.querySelectorAll('.sc')].map(el=>({el,s:+el.dataset.s,e:+el.dataset.e,els:[...el.querySelectorAll('.el')]}));
+scenes.forEach(sc=>sc.els.forEach(e=>{e._base=e.style.transform||'';}));
+const v=document.getElementById('v');
+function apply(e,tl){
+  const a=e.dataset.a, t0=+(e.dataset.t||0), d=+(e.dataset.d||.45);
+  const p=clamp((tl-t0)/d), b=e._base;
+  let tr='',op=1;
+  if(a==='pop'){const k=backOut(p);tr=`scale(${.2+.8*k})`;op=clamp(p*3);}
+  else if(a==='up'){const k=expoOut(p);tr=`translateY(${(1-k)*60}px)`;op=clamp(p*2.5);}
+  else if(a==='stamp'){const k=backOut(clamp((tl-t0)/.32));tr=`scale(${2.4-1.4*k}) rotate(${(1-k)*-14}deg)`;op=clamp((tl-t0)/.08);}
+  else if(a==='wipe'){const k=expoOut(clamp((tl-t0)/.35));tr=`scaleX(${k})`;op=k>0?1:0;}
+  else if(a==='fade'){op=clamp((tl-t0)/.3);}
+  else if(a==='slide'){const k=backOut(clamp((tl-t0)/.4));tr=`translateX(${(1-k)*-500}px) rotate(${(1-k)*-6}deg)`;op=clamp((tl-t0)/.1);}
+  else if(a==='drop'){const k=backOut(clamp((tl-t0)/.45));tr=`translateY(${(1-k)*-500}px)`;op=clamp((tl-t0)/.1);}
+  else if(a==='rise'){const k=backOut(clamp((tl-t0)/.5));tr=`translateY(${(1-k)*300 - Math.sin(tl*6)*6}px)`;op=clamp((tl-t0)/.1);}
+  e.style.transform=(tr+' '+b).trim();
+  e.style.opacity=op;
+}
+let lastVidT=-1;
+function render(t){
+  let vidNeed=null;
+  document.getElementById('hdr').style.display=(t>=26.2)?'none':'flex';
+  for(const sc of scenes){
+    const on=t>=sc.s && t<sc.e;
+    sc.el.style.display=on?'block':'none';
+    if(!on) continue;
+    const tl=t-sc.s;
+    sc.el.style.transform=`scale(${1+tl*.012})`;
+    sc.els.forEach(e=>apply(e,tl));
+    if(sc.el.dataset.vid) vidNeed=Math.min(tl+0.2,6.3);
+  }
+  // clock hands
+  const mh=document.getElementById('mh'),hh=document.getElementById('hh');
+  if(mh){const tl=t-1.7;mh.setAttribute('transform',`rotate(${tl*420} 100 100)`);hh.setAttribute('transform',`rotate(${tl*35+60} 100 100)`);}
+  // counter
+  const c=document.getElementById('cnt'); if(c){const tl=t-17.15;c.textContent=Math.round(500*expoOut(clamp(tl/.9)));}
+  return vidNeed;
+}
+window.renderAt=async t=>{
+  const vt=render(t);
+  if(vt!==null){ if(Math.abs(v.currentTime-vt)>0.001){ await new Promise(r=>{v.onseeked=r; v.currentTime=vt;}); } }
+  await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+};
+window.DUR=DUR;
+if(!cap){
+  let start=performance.now();
+  document.getElementById('ui').onclick=()=>{start=performance.now()};
+  (function loop(){const t=((performance.now()-start)/1000)%DUR;const vt=render(t);
+    if(vt!==null){ if(v.paused) v.play().catch(()=>{}); if(Math.abs(v.currentTime-vt)>.25) v.currentTime=vt; } else if(!v.paused) v.pause();
+    requestAnimationFrame(loop)})();
+}
+</script>
+</body>
+</html>
