@@ -12,6 +12,27 @@ segs=[]
 for n,(sc,i0) in enumerate(starts):
     i1=starts[n+1][1] if n+1<len(starts) else len(W)
     segs.append((sc,W[i0:i1]))
+import numpy as np, wave
+_wf=wave.open(src) if src.endswith('.wav') else None
+_sr=_wf.getframerate(); _ch=_wf.getnchannels(); _raw=np.frombuffer(_wf.readframes(_wf.getnframes()),dtype=np.int16).astype(float)/32768
+if _ch>1: _raw=_raw.reshape(-1,_ch).mean(1)
+_hop=int(_sr*0.01); _n=len(_raw)//_hop
+_db=20*np.log10(np.sqrt((_raw[:_n*_hop].reshape(_n,_hop)**2).mean(1))+1e-9)
+THR=cfg.get('silence_db',-40)
+def real_end(t,limit):
+    i=int(t/0.01); quiet=0
+    while i<min(_n,int(limit/0.01)):
+        quiet = quiet+1 if _db[i]<THR else 0
+        if quiet>=8: return (i-7)*0.01
+        i+=1
+    return limit
+def real_start(t,limit):
+    i=int(t/0.01); quiet=0
+    while i>max(0,int(limit/0.01)):
+        quiet = quiet+1 if _db[i]<THR else 0
+        if quiet>=8: return (i+7)*0.01
+        i-=1
+    return limit
 res={}
 for sc,ws in segs:
     # build pieces with compressed gaps
@@ -19,10 +40,11 @@ for sc,ws in segs:
     a=max(0,ws[0]['s']-0.06)
     for k,w in enumerate(ws):
         if k>0:
-            gap=w['s']-ws[k-1]['e']
-            if gap>GAP:
-                pieces.append((a,ws[k-1]['e']+GAP/2)); a=w['s']-GAP/2
-    end=ws[-1]['e']+0.12; pieces.append((a,end))
+            e0=real_end(ws[k-1]['e'],w['s']); s0=real_start(w['s'],e0)
+            if s0-e0>GAP:
+                pieces.append((a,e0+GAP/2)); a=s0-GAP/2
+    nxt=W[W.index(ws[-1])+1]['s'] if W.index(ws[-1])+1<len(W) else ws[-1]['e']+1.0
+    end=real_end(ws[-1]['e'],nxt)+0.12; pieces.append((a,end))
     # map times
     def mp(x):
         acc=0
