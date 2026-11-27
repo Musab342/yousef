@@ -10,10 +10,10 @@ def add(path,t,vol,lab):
 vo=[add(f'{VOD}/{s["k"]}_f.wav',s['s']+0.05,1.0,'v') for s in sc]
 fx=[]
 for s in sc[1:]:
-    if s is sc[-1]: fx.append(add(f'{X}/riser.mp3',s['s']-1.15,0.35,'f')); fx.append(add(f'{X}/boom.mp3',s['s'],0.4,'f'))
-    else: fx.append(add(f'{X}/whoosh.mp3',s['s']-0.18,0.45,'f'))
-M={'blurin':[('click',0.16)],'punch':[('boom',0.3)],'pop':[('pop',0.25)],'slam':[('boom',0.28),('swipe',0.3)],'stamp':[('pop',0.35),('click',0.2)],
-   'slideR':[('swipe',0.3)],'slideL':[('swipe',0.3)],'card':[('swipe',0.28)],'stretch':[('reverse',0.3)],'drop':[('swipe',0.32)],'line':[('swipe',0.22)],'up':[('click',0.14)],'spinin':[('pop',0.2)],'wipe':[('swipe',0.18)]}
+    if s is sc[-1]: fx.append(add(f'{X}/riser.mp3',s['s']-1.15,0.2,'f')); fx.append(add(f'{X}/boom.mp3',s['s'],0.4,'f'))
+    else: fx.append(add(f'{X}/softwhoosh.wav',s['s']-0.12,0.35,'f'))
+M={'blurin':[('click',0.16)],'punch':[('boom',0.3)],'pop':[('pop',0.25)],'slam':[('boom',0.22),('softswipe',0.3)],'stamp':[('pop',0.35),('click',0.2)],
+   'slideR':[('softswipe',0.3)],'slideL':[('softswipe',0.3)],'card':[('softswipe',0.28)],'stretch':[('reverse',0.18)],'drop':[('softswipe',0.32)],'line':[('softswipe',0.22)],'up':[('click',0.14)],'spinin':[('pop',0.2)],'wipe':[('softswipe',0.18)]}
 last={}
 for e in sorted([e for e in d['ev'] if e['k'] in keys],key=lambda e:e['t']):
     sd=[s for s in sc if s['k']==e['k']][0]
@@ -23,7 +23,7 @@ for e in sorted([e for e in d['ev'] if e['k'] in keys],key=lambda e:e['t']):
     if a=='pop' and e['k']=='a2': lst=[('notif',0.3)]
     for name,vol in lst:
         if e['t']-last.get(name,-9)<0.17: continue
-        last[name]=e['t']; fx.append(add(f'{X}/{name}.mp3',e['t'],vol,'f'))
+        last[name]=e['t']; fx.append(add(f'{X}/{name}.wav' if name.startswith('soft') else f'{X}/{name}.mp3',e['t'],vol,'f'))
 for k,off in CASH:
     s=[x for x in sc if x['k']==k][0]; fx.append(add(f'{X}/cash.mp3',s['s']+off,0.45,'f'))
 fc=';'.join(chains)
