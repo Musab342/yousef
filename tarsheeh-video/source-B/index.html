@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ترشيح - إعلان الباقة الشاملة</title>
+<style>
+@font-face{font-family:A;font-weight:500;src:url(../vid/node_modules/@fontsource/alexandria/files/alexandria-arabic-500-normal.woff2)}
+@font-face{font-family:A;font-weight:700;src:url(../vid/node_modules/@fontsource/alexandria/files/alexandria-arabic-700-normal.woff2)}
+@font-face{font-family:A;font-weight:900;src:url(../vid/node_modules/@fontsource/alexandria/files/alexandria-arabic-900-normal.woff2)}
+@font-face{font-family:A;font-weight:500;src:url(../vid/node_modules/@fontsource/alexandria/files/alexandria-latin-500-normal.woff2);unicode-range:U+0000-00FF}
+@font-face{font-family:A;font-weight:700;src:url(../vid/node_modules/@fontsource/alexandria/files/alexandria-latin-700-normal.woff2);unicode-range:U+0000-00FF}
+@font-face{font-family:A;font-weight:900;src:url(../vid/node_modules/@fontsource/alexandria/files/alexandria-latin-900-normal.woff2);unicode-range:U+0000-00FF}
+:root{--p:#F5EFE3;--n:#0E1A2B;--g:#1F9D74;--g2:#22B585;--r:#FF4D3D;--y:#FFC93C;--s:#64748B}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#111;height:100%}
+body{display:flex;align-items:center;justify-content:center;font-family:A,sans-serif}
+#stage{width:540px;height:960px;position:relative;overflow:hidden;background:var(--p)}
+.grain{position:absolute;inset:0;pointer-events:none;z-index:50;opacity:.28;mix-blend-mode:multiply;
+ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .2  0 0 0 0 .18  0 0 0 0 .12  0 0 0 .5 0'/></filter><rect width='220' height='220' filter='url(%23n)'/></svg>")}
+.vig{position:absolute;inset:0;pointer-events:none;z-index:49;background:radial-gradient(120% 90% at 50% 45%,transparent 60%,rgba(0,0,0,.14))}
+.sc{position:absolute;inset:0;display:none;transform-origin:50% 50%}
+.bgP{background:var(--p)} .bgG{background:var(--g)} .bgN{background:var(--n)}
+.logo{position:absolute;top:42px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:8px;font-weight:900;font-size:21px;z-index:40}
+.logo svg{width:34px;height:34px}
+.c{position:absolute;left:0;right:0;text-align:center}
+.el{will-change:transform,opacity}
+.w9{font-weight:900} .w7{font-weight:700} .w5{font-weight:500}
+.cn{color:var(--n)} .cg{color:var(--g)} .cw{color:#fff} .cr{color:var(--r)} .cy{color:var(--y)} .cs{color:var(--s)}
+.hl{position:relative;display:inline-block;padding:0 12px;z-index:0}
+.hl i{position:absolute;left:0;right:0;bottom:8%;height:42%;background:var(--y);z-index:-1;border-radius:6px;transform-origin:right}
+.tag{display:inline-block;font-weight:900;padding:8px 22px;border-radius:14px;box-shadow:0 6px 0 rgba(14,26,43,.2)}
+.tR{background:var(--r);color:#fff} .tY{background:var(--y);color:var(--n)} .tG{background:var(--g);color:#fff} .tN{background:var(--n);color:#fff} .tW{background:#fff;color:var(--n)}
+.frm{position:absolute;border-radius:24px;overflow:hidden;border:7px solid #fff;box-shadow:0 22px 44px rgba(14,26,43,.32);background:#000}
+.frm video{width:100%;height:100%;object-fit:cover;display:block}
+.paper{background:#fff;border-radius:16px;box-shadow:0 14px 30px rgba(14,26,43,.18);color:var(--n)}
+.card{display:flex;align-items:center;gap:14px;background:#fff;border-radius:18px;padding:14px 18px;width:420px;margin:0 auto 12px;font-weight:700;font-size:22px;color:var(--n);box-shadow:0 10px 22px rgba(14,26,43,.12)}
+.card b{flex:0 0 36px;height:36px;border-radius:12px;background:var(--g);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px}
+.pin{display:inline-flex;flex-direction:column;align-items:center;margin:0 10px}
+.pin span{margin-top:10px;font-weight:900;font-size:27px;color:#fff}
+.flash{position:absolute;inset:0;background:#fff;z-index:45;pointer-events:none;opacity:0}
+#ui{position:fixed;bottom:16px;left:16px;color:#fff;font:14px sans-serif;cursor:pointer;background:#1F9D74;padding:8px 14px;border-radius:8px}
+body.cap #ui{display:none}
+</style>
+</head>
+<body>
+<div id="stage">
+<div class="grain"></div><div class="vig"></div><div class="flash" id="flash"></div>
+
+<!-- LOGO header (color switches per bg) -->
+<div class="logo" id="logo"><svg viewBox="0 0 64 64"><use href="#lg"/></svg><span id="logoT">ترشيح</span></div>
+
+<!-- S1 نهاية 2026 -->
+<div class="sc bgP" data-k="s1">
+  <div class="el" data-a="drop" data-t="0" style="position:absolute;left:150px;top:230px;width:240px">
+    <svg viewBox="0 0 120 120" width="240" height="240"><use href="#cal"/></svg>
+  </div>
+  <div class="c el w9 cn" data-a="up" data-t="0.02" style="top:500px;font-size:56px">نهاية</div>
+  <div class="c el w9 cg" data-a="punch" data-t="0.4" style="top:570px;font-size:150px;line-height:1">2026</div>
+</div>
+
+<!-- S2 فترة ذروة التوظيف + watch meme -->
+<div class="sc bgP" data-k="s2" data-vid="watch">
+  <div class="frm el" data-a="pop" data-t="0" style="left:118px;top:120px;width:304px;height:548px;transform:rotate(-3deg)">
+    <video id="v_watch" src="watch.mp4" muted playsinline preload="auto"></video>
+  </div>
+  <div class="el" data-a="stamp" data-t="0" style="position:absolute;left:236px;top:96px;transform:rotate(6deg)"><span class="tag tY" style="font-size:36px;padding:16px 26px;line-height:1.15;text-align:center;width:205px">الوقت<br>يمشي!</span></div>
+  <div class="c el w7 cn" data-a="up" data-t="0.04" style="top:705px;font-size:38px">فترة</div>
+  <div class="c el" data-a="punch" data-t="0.4" style="top:760px"><span class="tag tR" style="font-size:54px;padding:8px 26px">ذروة التوظيف</span></div>
+</div>
+
+<!-- S3 الحق وجهز نفسك (green) -->
+<div class="sc bgG" data-k="s3">
+  <div class="c el w9 cw" data-a="punch" data-t="0" style="top:300px;font-size:150px">الحق</div>
+  <div class="c el w9 cn" data-a="up" data-t="0.55" style="top:500px;font-size:70px"><span class="hl">وجهّز نفسك<i class="el" data-a="wipe" data-t="0.7"></i></span></div>
+  <div class="el" data-a="spinin" data-t="0.1" style="position:absolute;left:52px;top:220px"><svg width="90" height="90" viewBox="0 0 24 24"><use href="#bolt"/></svg></div>
+  <div class="el" data-a="spinin" data-t="0.6" style="position:absolute;right:52px;top:650px"><svg width="70" height="70" viewBox="0 0 24 24"><use href="#bolt"/></svg></div>
+</div>
+
+<!-- S4 ما راح نسلك لك -->
+<div class="sc bgP" data-k="s4">
+  <div class="c el w7 cn" data-a="up" data-t="0" style="top:170px;font-size:46px">وما راح</div>
+  <div class="c el w9 cn" data-a="punch" data-t="0.45" style="top:270px;font-size:96px">نسلّك لك</div>
+  <div class="el" data-a="drop" data-t="0.55" style="position:absolute;left:120px;top:440px;transform:rotate(-4deg)">
+    <div class="paper w9" style="width:320px;padding:36px 0;text-align:center;font-size:52px;color:var(--s);text-decoration:line-through;text-decoration-color:#FF4D3D;text-decoration-thickness:5px">تسليك</div>
+  </div>
+  <div class="el" data-a="stamp" data-t="0.85" style="position:absolute;left:64px;top:395px">
+    <svg width="120" height="140" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#FF4D3D"/><path d="M7.5 7.5l9 9M16.5 7.5l-9 9" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>
+  </div>
+</div>
+
+<!-- S5 صريحين + استبيان -->
+<div class="sc bgP" data-k="s5">
+  <div class="c el w7 cn" data-a="up" data-t="0" style="top:170px;font-size:40px">بنكون</div>
+  <div class="c el w9 cg" data-a="punch" data-t="0.4" style="top:226px;font-size:64px;white-space:nowrap">صريحين معك</div>
+  <div class="el" data-a="drop" data-t="1.7" style="position:absolute;left:95px;top:380px;transform:rotate(3deg)">
+    <div class="paper" style="width:350px;padding:26px 26px 20px">
+      <div class="w9 cn" style="font-size:28px;margin-bottom:16px">استبيان قبل نبدأ</div>
+      <div class="el w7" data-a="fade" data-t="2.1" style="display:flex;gap:12px;align-items:center;margin-bottom:12px;font-size:20px"><svg width="28" height="28" viewBox="0 0 24 24"><use href="#ck"/></svg>خبرتك وإنجازاتك</div>
+      <div class="el w7" data-a="fade" data-t="2.4" style="display:flex;gap:12px;align-items:center;margin-bottom:12px;font-size:20px"><svg width="28" height="28" viewBox="0 0 24 24"><use href="#ck"/></svg>المشاكل اللي تحلها</div>
+      <div class="el w7" data-a="fade" data-t="2.7" style="display:flex;gap:12px;align-items:center;font-size:20px"><svg width="28" height="28" viewBox="0 0 24 24"><use href="#ck"/></svg>وش تبي توصل له</div>
+      <div style="height:6px;background:#EEF2F5;border-radius:4px;margin-top:20px;overflow:hidden"><i class="el" data-a="bar" data-t="1.95" style="display:block;height:100%;background:var(--g);transform-origin:right"></i></div>
+    </div>
+  </div>
+</div>
+
+<!-- S6 سيرتك وبروفايلك يبيضون وجهك + bateman -->
+<div class="sc bgP" data-k="s6" data-vid="bateman">
+  <div class="c el w9 cn" data-a="up" data-t="0" style="top:120px;font-size:46px">سيرتك وبروفايلك</div>
+  <div class="el" data-a="slideL" data-t="0.2" style="position:absolute;left:30px;top:220px;transform:rotate(-8deg)"><svg width="150" height="190" viewBox="0 0 60 76"><use href="#cv"/></svg></div>
+  <div class="el" data-a="slideR" data-t="1.1" style="position:absolute;right:26px;top:210px;transform:rotate(7deg)"><svg width="130" height="230" viewBox="0 0 52 92"><use href="#phone"/></svg></div>
+  <div class="frm el" data-a="pop" data-t="1.5" style="left:110px;top:300px;width:320px;height:370px;transform:rotate(2deg)">
+    <video id="v_bateman" src="bateman.mp4" muted playsinline preload="auto"></video>
+  </div>
+  <div class="c el" data-a="stamp" data-t="1.82" style="top:640px"><span class="tag tY" style="font-size:52px;padding:12px 30px">يبيّضون وجهك</span></div>
+  <div class="c el w7 cg" data-a="up" data-t="2.6" style="top:760px;font-size:36px">ويوصلون صح</div>
+</div>
+
+<!-- S7 غلط -> بوضوح (navy) -->
+<div class="sc bgN" data-k="s7">
+  <div class="el" data-a="drop" data-t="0" style="position:absolute;left:120px;top:150px;transform:rotate(-3deg)">
+    <div class="paper" style="width:300px;height:250px;padding:26px">
+      <div style="height:14px;width:60%;background:#0E1A2B;border-radius:6px;margin-bottom:18px"></div>
+      <div style="height:9px;background:#D7DEE5;border-radius:5px;margin-bottom:12px"></div>
+      <div style="height:9px;width:85%;background:#D7DEE5;border-radius:5px;margin-bottom:12px"></div>
+      <div style="height:9px;background:#D7DEE5;border-radius:5px;margin-bottom:12px"></div>
+      <div style="height:9px;width:70%;background:#D7DEE5;border-radius:5px;margin-bottom:12px"></div>
+      <div style="height:9px;width:90%;background:#D7DEE5;border-radius:5px"></div>
+    </div>
+  </div>
+  <svg class="el" data-a="draw" data-t="1.0" style="position:absolute;left:250px;top:250px" width="150" height="70" viewBox="0 0 150 70"><ellipse cx="75" cy="35" rx="68" ry="28" fill="none" stroke="#FF4D3D" stroke-width="5" stroke-dasharray="320" stroke-dashoffset="320" stroke-linecap="round"/></svg>
+  <div class="el" data-a="mag" data-t="0.3" style="position:absolute;left:300px;top:250px"><svg width="150" height="150" viewBox="0 0 24 24"><use href="#mag"/></svg></div>
+  <div class="c el" data-a="stamp" data-t="0.8" style="top:450px"><span class="tag tR" style="font-size:58px;padding:6px 28px">شي غلط؟</span></div>
+  <div class="c el w9 cw" data-a="up" data-t="1.36" style="top:570px;font-size:64px">نقولها لك</div>
+  <div class="c el" data-a="punch" data-t="1.85" style="top:665px"><span class="tag tY" style="font-size:62px;padding:6px 34px">بوضوح</span></div>
+  <div class="c el w5" data-a="up" data-t="2.9" style="top:790px;font-size:26px;color:#B9C6D3">ونعطيك نصايح تصلحه</div>
+</div>
+
+<!-- S8 الباقة الشاملة list -->
+<div class="sc bgP" data-k="s8">
+  <div class="c el w7 cn" data-a="up" data-t="0" style="top:120px;font-size:30px">وش في</div>
+  <div class="c el" data-a="punch" data-t="0.04" style="top:168px"><span class="tag tG" style="font-size:54px;padding:10px 30px">الباقة الشاملة</span></div>
+  <div style="position:absolute;top:300px;left:0;right:0">
+    <div class="card el" data-a="card" data-t="1.0"><b>CV</b>سيرة ATS باللغتين</div>
+    <div class="card el" data-a="card" data-t="2.5"><b>✉</b>خطاب تقديم</div>
+    <div class="card el" data-a="card" data-t="3.3"><b>in</b>نصوص بروفايل لينكدإن</div>
+    <div class="card el" data-a="card" data-t="3.85"><b>↗</b>خطة ظهور لينكدإن</div>
+    <div class="card el" data-a="card" data-t="4.65"><b>⌘</b>تحليل شبكتك</div>
+  </div>
+</div>
+
+<!-- S9 500 جهة + papers meme -->
+<div class="sc bgP" data-k="s9" data-vid="papers">
+  <div class="frm el" data-a="pop" data-t="0" style="left:40px;top:300px;width:250px;height:440px;transform:rotate(-6deg)">
+    <video id="v_papers" src="papers.mp4" muted playsinline preload="auto"></video>
+  </div>
+  <div class="c el w7 cn" data-a="up" data-t="0" style="top:120px;font-size:38px">وقائمة روابط لـ</div>
+  <div class="el w9 cg" data-a="punch" data-t="0.6" style="position:absolute;right:30px;top:290px;font-size:150px;line-height:1"><span id="cnt">500</span></div>
+  <div class="el" data-a="stamp" data-t="1.4" style="position:absolute;right:40px;top:470px;transform:rotate(4deg)"><span class="tag tY" style="font-size:44px">جهة عمل</span></div>
+  <div class="el w9 cn" data-a="up" data-t="2.1" style="position:absolute;right:36px;top:580px;font-size:36px;text-align:right;line-height:1.35">تناسب<br><span class="cg">تخصصك</span></div>
+  <div class="el" data-a="spinin" data-t="0.4" style="position:absolute;left:230px;top:220px"><svg width="80" height="80" viewBox="0 0 24 24"><use href="#lk"/></svg></div>
+</div>
+
+<!-- S10 المناطق (green) -->
+<div class="sc bgG" data-k="s10">
+  <div class="c el w9 cw" data-a="punch" data-t="0" style="top:190px;font-size:84px">الـ500 جهة</div>
+  <div class="c el w7" data-a="up" data-t="1.05" style="top:300px;font-size:36px;color:#0E1A2B">حاليًا في</div>
+  <div class="c" style="top:400px">
+    <div class="pin el" data-a="drop" data-t="1.55"><svg width="76" height="100" viewBox="0 0 24 32"><use href="#pn"/></svg><span>الرياض</span></div>
+    <div class="pin el" data-a="drop" data-t="2.0"><svg width="76" height="100" viewBox="0 0 24 32"><use href="#pn"/></svg><span>الغربية</span></div>
+    <div class="pin el" data-a="drop" data-t="2.65"><svg width="76" height="100" viewBox="0 0 24 32"><use href="#pn"/></svg><span>الشرقية</span></div>
+  </div>
+</div>
+
+<!-- S11 السعر + dance (navy) -->
+<div class="sc bgN" data-k="s11" data-vid="dance">
+  <div class="c el w7" data-a="up" data-t="99" style="top:104px;font-size:28px;color:#8FA0B3">كل هذا كان</div>
+  <div class="c el w9" data-a="up" data-t="0" style="top:150px;font-size:50px;color:#8FA0B3">قبل <span style="position:relative;display:inline-block">149<i class="el" data-a="wipe" data-t="1.0" style="position:absolute;left:-8px;right:-8px;top:46%;height:8px;background:var(--r);border-radius:6px;transform-origin:right"></i></span></div>
+  <div class="c el w7 cw" data-a="up" data-t="1.7" style="top:235px;font-size:44px">الحين</div>
+  <div class="c el w9 cy" data-a="punch" data-t="2.2" style="top:290px;font-size:140px;line-height:1">74.50</div>
+  <div class="c el w9 cw" data-a="up" data-t="3.3" style="top:450px;font-size:40px">ريال بس</div>
+  <div class="frm el" data-a="pop" data-t="3.4" style="left:120px;top:530px;width:300px;height:250px;transform:rotate(-3deg)">
+    <video id="v_dance" src="dance.mp4" muted playsinline preload="auto"></video>
+  </div>
+  <div class="c el" data-a="stamp" data-t="3.9" style="top:770px"><span class="tag tR" style="font-size:40px;transform:rotate(-3deg)">لفترة محدودة</span></div>
+</div>
+
+<!-- S12 end (green) -->
+<div class="sc bgG" data-k="s12">
+  <div class="c el" data-a="punch" data-t="0" style="top:270px"><svg width="180" height="180" viewBox="0 0 64 64"><use href="#lgw"/></svg></div>
+  <div class="c el w9 cw" data-a="up" data-t="0.0" style="top:470px;font-size:80px">ترشيح</div>
+  <div class="c el w5" data-a="up" data-t="1.0" style="top:590px;font-size:34px;color:#E6F6EE">شبكتك ترشّحك</div>
+  <div class="c el" data-a="fade" data-t="1.5" style="top:700px"><span class="tag tW" style="font-size:22px;direction:ltr">@tarsheeh.sa &nbsp;·&nbsp; tarsheehsa.com</span></div>
+</div>
+
+</div>
+<div id="ui">▶ إعادة</div>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+  <g id="lgbub"><path d="M10 6h44a6 6 0 0 1 6 6v30a6 6 0 0 1-6 6H26l-12 10v-10h-4a6 6 0 0 1-6-6V12a6 6 0 0 1 6-6z"/></g>
+  <g id="lg"><use href="#lgbub" fill="#22B585"/><g stroke="#fff" stroke-width="3"><line x1="32" y1="16" x2="20" y2="36"/><line x1="32" y1="16" x2="44" y2="36"/><line x1="20" y1="36" x2="44" y2="36"/></g><g fill="#fff"><circle cx="32" cy="16" r="5"/><circle cx="20" cy="36" r="5"/><circle cx="44" cy="36" r="5"/></g></g>
+  <g id="lgw"><use href="#lgbub" fill="#fff"/><g stroke="#1F9D74" stroke-width="3"><line x1="32" y1="16" x2="20" y2="36"/><line x1="32" y1="16" x2="44" y2="36"/><line x1="20" y1="36" x2="44" y2="36"/></g><g fill="#1F9D74"><circle cx="32" cy="16" r="5"/><circle cx="20" cy="36" r="5"/><circle cx="44" cy="36" r="5"/></g></g>
+  <g id="cal"><rect x="10" y="18" width="100" height="92" rx="14" fill="#fff" stroke="#0E1A2B" stroke-width="4"/><path d="M10 32a14 14 0 0 1 14-14h72a14 14 0 0 1 14 14v12H10z" fill="#FF4D3D" stroke="#0E1A2B" stroke-width="4"/><rect x="32" y="8" width="8" height="20" rx="4" fill="#0E1A2B"/><rect x="80" y="8" width="8" height="20" rx="4" fill="#0E1A2B"/><text x="60" y="92" text-anchor="middle" font-family="A" font-weight="900" font-size="40" fill="#0E1A2B">31</text><text x="60" y="58" text-anchor="middle" font-family="A" font-weight="700" font-size="11" fill="#64748B">DEC</text></g>
+  <g id="bolt"><path d="M13 2L4 14h7l-1 8 9-12h-7z" fill="#FFC93C" stroke="#0E1A2B" stroke-width="1.2" stroke-linejoin="round"/></g>
+  <g id="ck"><rect x="2" y="2" width="20" height="20" rx="6" fill="#1F9D74"/><path d="M7 12.3l3.4 3.4L17 9" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g id="cv"><rect x="2" y="2" width="56" height="72" rx="6" fill="#fff" stroke="#0E1A2B" stroke-width="2.5"/><circle cx="16" cy="17" r="7" fill="#1F9D74"/><rect x="27" y="12" width="24" height="4" rx="2" fill="#0E1A2B"/><rect x="27" y="20" width="16" height="3" rx="1.5" fill="#94A3B8"/><g fill="#CBD5E1"><rect x="9" y="32" width="42" height="3" rx="1.5"/><rect x="9" y="39" width="36" height="3" rx="1.5"/><rect x="9" y="46" width="42" height="3" rx="1.5"/><rect x="9" y="53" width="30" height="3" rx="1.5"/></g><rect x="9" y="62" width="18" height="6" rx="3" fill="#FFC93C"/><text x="18" y="67" text-anchor="middle" font-family="A" font-weight="900" font-size="5" fill="#0E1A2B">ATS</text></g>
+  <g id="phone"><rect x="2" y="2" width="48" height="88" rx="9" fill="#0E1A2B"/><rect x="5" y="8" width="42" height="78" rx="5" fill="#fff"/><rect x="5" y="8" width="42" height="16" fill="#1F9D74"/><circle cx="26" cy="26" r="8" fill="#fff" stroke="#1F9D74" stroke-width="2"/><circle cx="26" cy="24.5" r="3" fill="#94A3B8"/><path d="M20 31a6 5 0 0 1 12 0" fill="#94A3B8"/><rect x="14" y="38" width="24" height="3.5" rx="1.7" fill="#0E1A2B"/><rect x="11" y="45" width="30" height="2.5" rx="1.2" fill="#94A3B8"/><rect x="9" y="53" width="34" height="9" rx="4.5" fill="#1F9D74"/><g fill="#E2E8F0"><rect x="9" y="67" width="34" height="3" rx="1.5"/><rect x="9" y="73" width="28" height="3" rx="1.5"/><rect x="9" y="79" width="32" height="3" rx="1.5"/></g></g>
+  <g id="mag"><circle cx="10" cy="10" r="6.5" fill="rgba(255,255,255,.25)" stroke="#FFC93C" stroke-width="2.4"/><path d="M15 15l6 6" stroke="#FFC93C" stroke-width="3.2" stroke-linecap="round"/></g>
+  <g id="lk"><circle cx="12" cy="12" r="12" fill="#0E1A2B"/><g stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"><path d="M10.5 13.5a3 3 0 0 0 4.2 0l2.2-2.2a3 3 0 0 0-4.2-4.2l-.8.8"/><path d="M13.5 10.5a3 3 0 0 0-4.2 0l-2.2 2.2a3 3 0 0 0 4.2 4.2l.8-.8"/></g></g>
+  <g id="pn"><path d="M12 1a10 10 0 0 0-10 10c0 8 10 20 10 20s10-12 10-20A10 10 0 0 0 12 1z" fill="#FFC93C" stroke="#0E1A2B" stroke-width="1.2"/><circle cx="12" cy="11" r="4" fill="#0E1A2B"/></g>
+</defs></svg>
+
+<script>
+// scene durations (seconds) — overwritten by timing.js when voiceover exists
+window.TIMING = window.TIMING || {s1:1.6,s2:2.3,s3:1.6,s4:1.9,s5:2.6,s6:3.0,s7:3.2,s8:4.4,s9:3.0,s10:2.0,s11:4.2,s12:2.6};
+</script>
+<script src="timing.js" onerror="0"></script>
+<script>
+const cap=location.search.includes('cap');
+if(cap) document.body.classList.add('cap');
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const backOut=(p,s=1.9)=>{p=p-1;return p*p*((s+1)*p+s)+1};
+const expoOut=p=>p>=1?1:1-Math.pow(2,-10*p);
+const els=[...document.querySelectorAll('.sc')];
+let acc=0;
+const scenes=els.map(el=>{const d=TIMING[el.dataset.k];const s={el,k:el.dataset.k,s:acc,e:acc+d,els:[...el.querySelectorAll('.el')]};acc+=d;return s;});
+const DUR=acc; window.DUR=DUR; window.SCENES=scenes.map(s=>({k:s.k,s:s.s,e:s.e}));
+scenes.forEach(sc=>sc.els.forEach(e=>{e._b=e.style.transform||'';}));
+const vids={}; document.querySelectorAll('video').forEach(v=>vids[v.id.slice(2)]=v);
+const logo=document.getElementById('logo'), logoT=document.getElementById('logoT'), flash=document.getElementById('flash');
+function apply(e,tl){
+  const a=e.dataset.a,t0=+(e.dataset.t||0),x=tl-t0,b=e._b;let tr='',op=1;
+  if(a==='pop'){const k=backOut(clamp(x/.42));tr=`scale(${.3+.7*k})`;op=clamp(x/.12);}
+  else if(a==='punch'){const p=clamp(x/.38);const k=backOut(p,2.6);tr=`scale(${1.9-0.9*k})`;op=clamp(x/.08);}
+  else if(a==='up'){const k=expoOut(clamp(x/.45));tr=`translateY(${(1-k)*46}px)`;op=clamp(x/.18);}
+  else if(a==='stamp'){const k=backOut(clamp(x/.3),2.4);tr=`scale(${2.2-1.2*k}) rotate(${(1-k)*-12}deg)`;op=clamp(x/.07);}
+  else if(a==='wipe'||a==='bar'){const k=expoOut(clamp(x/(a==='bar'?.9:.35)));tr=`scaleX(${k})`;op=k>0?1:0;}
+  else if(a==='fade'){op=clamp(x/.25);tr=`translateX(${(1-expoOut(clamp(x/.35)))*-20}px)`;}
+  else if(a==='drop'){const k=backOut(clamp(x/.5),1.6);tr=`translateY(${(1-k)*-620}px)`;op=clamp(x/.05);}
+  else if(a==='slideL'){const k=backOut(clamp(x/.45));tr=`translateX(${(1-k)*-360}px)`;op=clamp(x/.05);}
+  else if(a==='slideR'){const k=backOut(clamp(x/.45));tr=`translateX(${(1-k)*360}px)`;op=clamp(x/.05);}
+  else if(a==='card'){const k=backOut(clamp(x/.42),1.7);tr=`translateX(${(1-k)*-560}px) rotate(${(1-k)*-8}deg)`;op=clamp(x/.05);}
+  else if(a==='spinin'){const k=backOut(clamp(x/.5));tr=`scale(${k}) rotate(${(1-k)*-160 + Math.sin(tl*5)*6}deg)`;op=clamp(x/.05);}
+  else if(a==='mag'){const k=expoOut(clamp(x/.6));tr=`translate(${(1-k)*160 + Math.sin(tl*3)*8}px,${(1-k)*200 + Math.cos(tl*3)*6}px)`;op=clamp(x/.1);}
+  else if(a==='draw'){const c=e.querySelector('ellipse');c.setAttribute('stroke-dashoffset',320*(1-expoOut(clamp(x/.5))));op=x>0?1:0;}
+  // gentle float after entry
+  if(['pop','stamp','drop'].includes(a) && x>0.5) tr+=` translateY(${Math.sin((tl+t0)*2.4)*3}px)`;
+  e.style.transform=(tr+' '+b).trim(); e.style.opacity=op;
+}
+function render(t){
+  let need={};
+  for(const sc of scenes){
+    const on=t>=sc.s&&t<sc.e; sc.el.style.display=on?'block':'none'; if(!on) continue;
+    const tl=t-sc.s, d=sc.e-sc.s;
+    // scene transition: punch-in at start, slight push through
+    const inP=clamp(tl/.22); const z=1+(1-expoOut(inP))*.12 + tl*.01;
+    const outP=clamp((tl-(d-.12))/.12);
+    sc.el.style.transform=`scale(${z + outP*.08})`;
+    sc.el.style.filter=outP>0?`blur(${outP*6}px)`:'';
+    sc.els.forEach(e=>apply(e,tl));
+    if(sc.el.dataset.vid){const v=vids[sc.el.dataset.vid];const r=Math.min(1,(v.duration-0.06)/d);need[sc.el.dataset.vid]=tl*r;}
+    const dark=sc.el.classList.contains('bgN')||sc.el.classList.contains('bgG');
+    logo.style.color=dark?'#fff':'#0E1A2B'; logo.style.display=sc.k==='s12'?'none':'flex';
+    flash.style.opacity= tl<.06 && sc.s>0 ? .5*(1-tl/.06) : 0;
+  }
+  const c=document.getElementById('cnt'); const s9=scenes.find(s=>s.k==='s9'); if(c&&s9){c.textContent=Math.round(500*expoOut(clamp((t-s9.s-0.6)/1)));}
+  return need;
+}
+window.renderAt=async t=>{
+  const need=render(t);
+  for(const k in need){const v=vids[k];const vt=Math.min(need[k],v.duration-0.05);
+    if(Math.abs(v.currentTime-vt)>0.001) await new Promise(r=>{v.onseeked=r;v.currentTime=vt;});}
+  await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+};
+if(!cap){let st=performance.now();document.getElementById('ui').onclick=()=>st=performance.now();
+ (function loop(){const t=((performance.now()-st)/1000)%DUR;const need=render(t);
+  for(const k in vids){const v=vids[k]; if(k in need){ if(v.paused) v.play().catch(()=>{}); if(Math.abs(v.currentTime-need[k])>.3) v.currentTime=need[k]; } else if(!v.paused) v.pause();}
+  requestAnimationFrame(loop)})();}
+</script>
+</body>
+</html>
