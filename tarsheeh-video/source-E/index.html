@@ -59,6 +59,13 @@ body.cap #ui{display:none}
 .strk i{position:absolute;left:-6px;right:-6px;top:52%;height:7px;background:var(--r);border-radius:4px;transform-origin:right}
 .mini{position:absolute;top:44px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:8px;font-weight:900;font-size:20px;color:var(--n);z-index:39}
 .mini svg{width:32px;height:32px}
+.ghost{color:transparent;-webkit-text-stroke:2px rgba(14,26,43,.14);font-weight:900;line-height:1}
+.dark .ghost{-webkit-text-stroke:2px rgba(255,255,255,.08)}
+.phone{position:absolute;width:190px;height:380px;border-radius:34px;background:#0E1A2B;padding:9px;box-shadow:0 26px 50px rgba(14,26,43,.35),0 0 0 2px rgba(255,255,255,.4) inset}
+.phone .scrn{width:100%;height:100%;border-radius:26px;background:#fff;overflow:hidden;position:relative}
+.phone .scr{position:absolute;left:0;right:0;top:0;padding:16px 14px}
+.phone .notch{position:absolute;top:8px;left:50%;width:60px;height:16px;margin-left:-30px;background:#0E1A2B;border-radius:10px;z-index:2}
+.bar{height:8px;border-radius:4px;background:#E3E8EE;margin-bottom:9px}
 </style>
 <div class="mini" id="mini"><svg viewBox="0 0 64 64"><use href="#lg"/></svg>ترشيح</div>
 
@@ -66,7 +73,7 @@ body.cap #ui{display:none}
 <div class="sc" data-k="e1" data-tr="up" data-cap="End of the year: peak hiring season.">
   <div class="el" data-a="pop" data-t="0.02" style="position:absolute;left:190px;top:180px"><svg width="160" height="160" viewBox="0 0 120 120"><use href="#cal"/></svg></div>
   <div class="c el w9 cn" data-a="words" data-t="0.02,0.54" style="top:390px;font-size:68px">نهاية السنة</div>
-  <div class="c el w9 cg" data-a="stretch" data-t="1.28" style="top:500px;font-size:74px">ذروة التوظيف</div>
+  <div class="c el w9 cg" data-a="kash" data-kw="ذروة التوظ|يف" data-max="3" data-t="1.28" style="top:500px;font-size:66px;white-space:nowrap">ذروة التوظيف</div>
 </div>
 
 <!-- E2 تقديم تقديم تقديم -->
@@ -109,24 +116,32 @@ body.cap #ui{display:none}
   <svg class="el" data-a="draw" data-t="0.3" style="position:absolute;left:240px;top:240px" width="150" height="70" viewBox="0 0 150 70"><ellipse cx="75" cy="35" rx="68" ry="28" fill="none" stroke="#FF4D3D" stroke-width="5" stroke-dasharray="320" stroke-dashoffset="320" stroke-linecap="round"/></svg>
   <div class="c el" data-a="stamp" data-t="0.02" style="top:440px"><span class="pill pillR" style="font-size:46px">فيه غلط؟</span></div>
   <div class="c el w9 cn" data-a="words" data-t="0.93,0.6" style="top:550px;font-size:58px">نقوله لك</div>
-  <div class="c el w9 cg" data-a="stretch" data-t="1.79" style="top:630px;font-size:74px">بوضوح</div>
+  <div class="c el w9 cg" data-a="kash" data-kw="بوض|وح" data-t="1.79" style="top:630px;font-size:78px">بوضوح</div>
   <div class="c el w7 cs" data-a="words" data-t="2.66,1.22" style="top:760px;font-size:32px">ونعطيك نصايح تصلحه</div>
 </div>
 
-<!-- E6 الباقة الشاملة: pills on a cable -->
+<!-- E6 الباقة الشاملة: phone + pills -->
 <div class="sc" data-k="e6" data-tr="up" data-cap="ATS CV in both languages, cover letter, LinkedIn profile, visibility plan, network analysis.">
-  <svg class="el" data-a="cable" data-t="0" style="position:absolute;left:0;top:0" width="540" height="960" viewBox="0 0 540 960"><path d="M270 0 C 250 120, 300 200, 270 270 S 230 420, 270 470 S 310 600, 270 650 S 240 780, 270 860" fill="none" stroke="#0E1A2B" stroke-width="3" stroke-dasharray="1100" stroke-dashoffset="1100"/></svg>
-  <div class="c el" data-a="punch" data-t="0.05" style="top:130px"><span class="pill pillG" style="font-size:42px">الباقة الشاملة</span></div>
-  <div class="el" data-a="slideR" data-t="0.02" style="position:absolute;right:40px;top:260px"><span class="pill" style="font-size:30px">سيرة ATS باللغتين</span></div>
-  <div class="el" data-a="slideL" data-t="2.28" style="position:absolute;left:40px;top:370px"><span class="pill" style="font-size:30px">خطاب تقديم</span></div>
-  <div class="el" data-a="slideR" data-t="3.56" style="position:absolute;right:50px;top:480px"><span class="pill" style="font-size:30px">بروفايل لينكدإن</span></div>
-  <div class="el" data-a="slideL" data-t="4.86" style="position:absolute;left:30px;top:590px"><span class="pill" style="font-size:30px">خطة تحسين الظهور</span></div>
-  <div class="el" data-a="slideR" data-t="6.5" style="position:absolute;right:60px;top:700px"><span class="pill pillG" style="font-size:32px">وتحليل شبكتك</span></div>
+  <div class="phone el" data-a="phone" data-t="0.02" style="left:26px;top:300px;transform:rotate(-5deg)"><div class="notch"></div><div class="scrn"><div class="scr">
+    <div style="display:flex;gap:10px;align-items:center;margin:22px 0 14px"><div style="width:42px;height:42px;border-radius:50%;background:#1F9D74"></div><div style="flex:1"><div class="bar" style="background:#0E1A2B;width:80%"></div><div class="bar" style="width:55%"></div></div></div>
+    <div style="font:900 11px A;color:#1F9D74;margin-bottom:8px">الخبرات</div><div class="bar"></div><div class="bar" style="width:85%"></div><div class="bar" style="width:92%"></div>
+    <div style="font:900 11px A;color:#1F9D74;margin:12px 0 8px">الإنجازات</div><div class="bar"></div><div class="bar" style="width:70%"></div><div class="bar" style="width:88%"></div>
+    <div style="font:900 11px A;color:#1F9D74;margin:12px 0 8px">المهارات</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#E6F6EE;border-radius:8px;width:50px;height:16px"></span><span style="background:#E6F6EE;border-radius:8px;width:40px;height:16px"></span><span style="background:#E6F6EE;border-radius:8px;width:60px;height:16px"></span><span style="background:#E6F6EE;border-radius:8px;width:44px;height:16px"></span></div>
+    <div style="font:900 11px A;color:#1F9D74;margin:12px 0 8px">التعليم</div><div class="bar"></div><div class="bar" style="width:60%"></div>
+    <div style="font:900 11px A;color:#1F9D74;margin:12px 0 8px">LinkedIn</div><div class="bar" style="background:#cfe3f7"></div><div class="bar" style="width:75%;background:#cfe3f7"></div><div class="bar" style="background:#cfe3f7"></div>
+  </div></div></div>
+  <div class="c el" data-a="punch" data-t="0.05" style="top:140px"><span class="pill pillG" style="font-size:42px">الباقة الشاملة</span></div>
+  <div class="el" data-a="slideR" data-t="0.02" style="position:absolute;right:28px;top:300px"><span class="pill" style="font-size:24px">سيرة ATS باللغتين</span></div>
+  <div class="el" data-a="slideR" data-t="2.28" style="position:absolute;right:28px;top:380px"><span class="pill" style="font-size:24px">خطاب تقديم</span></div>
+  <div class="el" data-a="slideR" data-t="3.56" style="position:absolute;right:28px;top:460px"><span class="pill" style="font-size:24px">بروفايل لينكدإن</span></div>
+  <div class="el" data-a="slideR" data-t="4.86" style="position:absolute;right:28px;top:540px"><span class="pill" style="font-size:24px">خطة تحسين الظهور</span></div>
+  <div class="el" data-a="slideR" data-t="6.5" style="position:absolute;right:28px;top:620px"><span class="pill pillG" style="font-size:26px">وتحليل شبكتك</span></div>
 </div>
 
 <!-- E7 وروابط لـ500 جهة عمل -->
 <div class="sc" data-k="e7" data-tr="down" data-vid="papers" data-cap="Plus links to 500 employers.">
   <div class="c el w7 cn" data-a="words" data-t="0.02,0.82" style="top:150px;font-size:44px">وروابط لـ</div>
+  <div class="c el ghost" data-a="ghost" data-t="1.02" style="top:150px;font-size:330px">500</div>
   <div class="c el w9 cg" data-a="punch" data-t="1.02" style="top:210px;font-size:170px;line-height:1"><span id="cnt">500</span></div>
   <div class="c el" data-a="stamp" data-t="1.7" style="top:410px"><span class="pill" style="font-size:42px">جهة عمل</span></div>
   <div class="glass el" data-a="slam" data-t="0.32" style="left:150px;top:510px;width:240px;height:330px;transform:rotate(-4deg)"><video id="v_papers" src="papers.mp4" muted playsinline preload="auto"></video></div>
@@ -134,32 +149,35 @@ body.cap #ui{display:none}
 
 <!-- E8 الرياض الغربية الشرقية: timeline -->
 <div class="sc" data-k="e8" data-tr="up" data-cap="In Riyadh, the Western and Eastern regions, matching your field.">
-  <div class="c el w7 cn" data-a="words" data-t="0.02" style="top:260px;font-size:40px">في</div>
-  <svg class="el" data-a="line" data-t="0.02" style="position:absolute;left:40px;top:400px" width="460" height="60" viewBox="0 0 460 60"><line x1="10" y1="30" x2="450" y2="30" stroke="#0E1A2B" stroke-width="5" stroke-linecap="round" stroke-dasharray="440" stroke-dashoffset="440"/></svg>
-  <div class="el" data-a="pop" data-t="0.12" style="position:absolute;right:40px;top:414px;width:32px;height:32px;border-radius:50%;background:var(--g)"></div>
-  <div class="el w9 cn" data-a="blurin" data-t="0.12" style="position:absolute;right:16px;top:470px;font-size:30px">الرياض</div>
-  <div class="el" data-a="pop" data-t="0.92" style="position:absolute;left:254px;top:414px;width:32px;height:32px;border-radius:50%;background:var(--g)"></div>
-  <div class="el w9 cn" data-a="blurin" data-t="0.92" style="position:absolute;left:222px;top:470px;font-size:30px">الغربية</div>
-  <div class="el" data-a="pop" data-t="1.94" style="position:absolute;left:40px;top:414px;width:32px;height:32px;border-radius:50%;background:var(--g)"></div>
-  <div class="el w9 cn" data-a="blurin" data-t="1.94" style="position:absolute;left:16px;top:470px;font-size:30px">الشرقية</div>
-  <div class="c el w9 cg" data-a="stretch" data-t="2.88" style="top:620px;font-size:58px;white-space:nowrap">تناسب تخصصك</div>
+  <div class="c el w7 cn" data-a="words" data-t="0.02" style="top:150px;font-size:40px">في</div>
+  <svg class="el" data-a="net2" data-t="0.02" style="position:absolute;left:0;top:0" width="540" height="960" viewBox="0 0 540 960"><g fill="none" stroke="#0E1A2B" stroke-width="2.5" stroke-linecap="round">
+    <path d="M482 430 L380 330 L270 430 L160 340 L58 430"/><path d="M380 330 L330 230"/><path d="M160 340 L200 240"/><path d="M270 430 L270 540"/><path d="M482 430 L470 545"/><path d="M58 430 L80 545"/></g>
+    <g fill="#0E1A2B"><circle cx="380" cy="330" r="7"/><circle cx="160" cy="340" r="7"/><circle cx="330" cy="230" r="6"/><circle cx="200" cy="240" r="6"/><circle cx="270" cy="540" r="6"/><circle cx="470" cy="545" r="6"/><circle cx="80" cy="545" r="6"/></g></svg>
+  <div class="el" data-a="pop" data-t="0.12" style="position:absolute;right:42px;top:414px;width:32px;height:32px;border-radius:50%;background:var(--g);box-shadow:0 0 0 8px rgba(31,157,116,.18)"></div>
+  <div class="el w9 cn" data-a="blurin" data-t="0.12" style="position:absolute;right:14px;top:600px;font-size:30px">الرياض</div>
+  <div class="el" data-a="pop" data-t="0.92" style="position:absolute;left:254px;top:414px;width:32px;height:32px;border-radius:50%;background:var(--g);box-shadow:0 0 0 8px rgba(31,157,116,.18)"></div>
+  <div class="el w9 cn" data-a="blurin" data-t="0.92" style="position:absolute;left:222px;top:600px;font-size:30px">الغربية</div>
+  <div class="el" data-a="pop" data-t="1.94" style="position:absolute;left:42px;top:414px;width:32px;height:32px;border-radius:50%;background:var(--g);box-shadow:0 0 0 8px rgba(31,157,116,.18)"></div>
+  <div class="el w9 cn" data-a="blurin" data-t="1.94" style="position:absolute;left:14px;top:600px;font-size:30px">الشرقية</div>
+  <div class="c el w9 cg" data-a="stretch" data-t="2.88" style="top:700px;font-size:58px;white-space:nowrap">تناسب تخصصك</div>
 </div>
 
 <!-- E9 السعر -->
 <div class="sc" data-k="e9" data-tr="down" data-vid="dance" data-cap="Was 149, now only 74.50 SAR, for a limited time.">
   <div class="c el w9 cs" data-a="words" data-t="0.02,0.88" style="top:130px;font-size:46px">كانت بـ <span class="strk">149<i class="el" data-a="wipe" data-t="1.5"></i></span></div>
   <div class="c el w7 cn" data-a="words" data-t="2.51" style="top:220px;font-size:44px">والحين</div>
+  <div class="c el ghost" data-a="ghost" data-t="3.83" style="top:235px;font-size:240px">74.50</div>
   <div class="c el w9 cg" data-a="punch" data-t="3.83" style="top:280px;font-size:150px;line-height:1">74.50</div>
   <div class="c el w9 cn" data-a="words" data-t="4.35" style="top:450px;font-size:40px">ريال بس</div>
   <div class="glass el" data-a="slam" data-t="5.39" style="left:140px;top:525px;width:260px;height:220px;transform:rotate(-3deg)"><video id="v_dance" src="dance.mp4" muted playsinline preload="auto"></video></div>
-  <div class="c el" data-a="stamp" data-t="5.99" style="top:780px"><span class="pill pillR" style="font-size:36px">لفترة محدودة</span></div>
+  <div class="c el w9 cr" data-a="kash" data-kw="لفت|رة مح|دودة" data-max="2" data-t="5.99" style="top:775px;font-size:42px;white-space:nowrap">لفترة محدودة</div>
 </div>
 
 <!-- E10 احسبها صح -->
 <div class="sc" data-k="e10" data-tr="up" data-cap="Do the math.">
   <div class="el" data-a="slam" data-t="0.02" style="position:absolute;left:180px;top:200px;transform:rotate(-6deg)"><svg width="180" height="230" viewBox="0 0 44 56"><use href="#calc"/></svg></div>
   <div class="c el w9 cn" data-a="words" data-t="0.02" style="top:480px;font-size:84px">احسبها</div>
-  <div class="c el w9 cg" data-a="stretch" data-t="0.6" style="top:590px;font-size:96px">صح</div>
+  <div class="c el w9 cg" data-a="kash" data-kw="ص|ح" data-max="4" data-t="0.6" style="top:590px;font-size:110px">صح</div>
 </div>
 
 <!-- E11 end -->
@@ -209,6 +227,11 @@ function apply(e,tl){
   else if(a==='wipe'){const k=expoOut(clamp(x/.35));tr=`scaleX(${k})`;op=k>0?1:0;}
   else if(a==='stretch'){const p=clamp(x/.7);tr=`scaleX(${.35+.65*backOut(clamp(x/.55),1.3)})`;op=clamp(x/.12);e.style.letterSpacing=`${(1-expoOut(p))*-8}px`;fl=`blur(${(1-clamp(x/.25))*8}px)`;}
   else if(a==='line'){const l=e.querySelector('line');l.setAttribute('stroke-dashoffset',440*(1-expoOut(clamp(x/1.1))));op=x>0?1:0;}
+  else if(a==='kash'){const parts=e.dataset.kw.split('|');const n=Math.round(expoOut(clamp(x/.7))*(+(e.dataset.max||5)));if(e._n!==n){e._n=n;e.textContent=parts.join('ـ'.repeat(n));}
+    const k=expoOut(clamp(x/.45));tr=`translateY(${(1-k)*26}px)`;op=clamp(x/.15);fl=`blur(${(1-k)*10}px)`;}
+  else if(a==='ghost'){const k=expoOut(clamp(x/.9));tr=`scale(${1.25-.25*k})`;op=clamp(x/.3);}
+  else if(a==='phone'){const k=backOut(clamp(x/.45),1.4);tr=`translateY(${(1-k)*300}px) rotate(${(1-k)*-10}deg)`;op=clamp(x/.08);const sc2=e.querySelector('.scr');if(sc2)sc2.style.transform=`translateY(${-Math.max(0,x-.5)*28}px)`;}
+  else if(a==='net2'){e.querySelectorAll('path').forEach((p,i)=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L*(1-expoOut(clamp((x-i*.18)/.6)));});e.querySelectorAll('circle').forEach((c,i)=>{c.style.opacity=clamp((x-.3-i*.12)/.2);});op=x>0?1:0;}
   else if(a==='cable'){const p=e.querySelector('path');p.setAttribute('stroke-dashoffset',1100*(1-expoOut(clamp(x/2.5))));op=x>0?1:0;}
   else if(a==='draw'){const c=e.querySelector('ellipse');c.setAttribute('stroke-dashoffset',320*(1-expoOut(clamp(x/.5))));op=x>0?1:0;}
   if(['pop','slam','stamp'].includes(a)&&x>.5) tr+=` translateY(${Math.sin((tl+t0)*2.2)*3}px)`;
